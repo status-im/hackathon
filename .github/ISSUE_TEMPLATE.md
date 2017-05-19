@@ -1,5 +1,6 @@
 ### Status Hackathon Submission
-<!--Use your project name as the title of this issue (What we should call you when you win?) -->
+<!-- Fill this out as best as you can now. You can always come back and edit it if information changes -->
+<!-- Use your project name as the title of this issue (What we should call you when you win?) -->
 Type: <!-- DApp / Bot / Commands -->
 Github Repo: <!-- optional, send in your pull request with a comment that says "fixes #thisissuenumber" -->
 Description:
