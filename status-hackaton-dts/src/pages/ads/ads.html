@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ads
+    </ion-title>
+    
+    <ion-buttons end [hidden]="!isTeacher">
+      <button ion-button (click)="addAds()">
+        <ion-icon name="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let ads of adsList" (click)="selectAds(ads)">
+            <h2>{{ads.title}}</h2>
+            <p>{{ads.description}}</p>
+            <button ion-button clear item-right>View</button>
+        </ion-item>
+    </ion-list>
+
+</ion-content>
