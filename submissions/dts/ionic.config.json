@@ -1,12 +1,11 @@
 {
   "name": "status-hackaton-dts",
   "app_id": "",
-  "v2": true,
-  "typescript": true,
   "proxies": [
     {
       "path": "/contracts",
       "proxyUrl": "http://192.168.0.23"
-    }  
-  ]
+    }
+  ],
+  "type": "ionic-angular"
 }
