@@ -18,8 +18,7 @@ export class EthereumService {
         } else {
             this.provider = new Web3.providers.HttpProvider(environment.rpcurl);
         }
-        
-        this.web3 = new Web3(this.provider); //new Web3(provider) 
+        this.web3 = new Web3(this.provider);
     }
  
     public getAddresses() {

@@ -13,6 +13,7 @@ declare var web3: any;
 export class ContractService {
     
     private account;
+    private provider;
     private web3 : Web3;
     private provider;
     private adsRegistryContract;
@@ -29,8 +30,7 @@ export class ContractService {
         } else {
             this.provider = new Web3.providers.HttpProvider(environment.rpcurl);
         }
-       
-        this.web3 = new Web3(this.provider); //new Web3(provider) 
+        this.web3 = new Web3(this.provider);
 
         self.logger.debug("contracts/AdsRegistry.json");
         this.http.get("contracts/AdsRegistry.json").subscribe(data => {
