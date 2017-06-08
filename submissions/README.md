@@ -47,15 +47,22 @@ cd hackathon/submissions/dts/
 
 
 ## Install
-`npm install`
+```
+npm install
+```
 
 
 ## Run Geth or testrpc
-`geth --fast --cache=1048 --testnet --unlock "0x................." --rpc --rpcapi "eth,net,web3" --rpccorsdomain '*' --rpcaddr 0.0.0.0 --rpcport 8545`
+
+```
+geth --fast --cache=1048 --testnet --unlock "0x................." --rpc --rpcapi "eth,net,web3" --rpccorsdomain '*' --rpcaddr 0.0.0.0 --rpcport 8545
+```
 
 
 ## Deploy the contracts
-`truffle migrate --compile-all --reset --network ropsten ; cp -R ./build/contracts/ ./www/`
+```
+truffle migrate --compile-all --reset --network ropsten ; cp -R ./build/contracts/ ./www/
+```
 
 
 ## Configure your RPC URL endpoint
@@ -63,11 +70,15 @@ in environment.ts, change `rpcurl: "http://x.x.x.x:8545"` by your node RPC URL
 
 
 ## Deploy the Mobile app
-`ionic serve`
+```
+ionic serve
+```
 
 
 ## Deploy the app in Status
-`status-dev-cli add "{\"whisper-identity\": \"dts\", \"dapp-url\": \"http://x.x.x.x:8100\", \"name\": \"MyTutor\"}" --ip <DEVICE IP>`
+```
+status-dev-cli add "{\"whisper-identity\": \"dts\", \"dapp-url\": \"http://x.x.x.x:8100\", \"name\": \"MyTutor\"}" --ip <DEVICE IP>
+```
 
 
 # Demo
@@ -79,7 +90,7 @@ The following demo demonstrates a teacher and student using MyTutor system throu
 <link>
 
 
-# Improvments & Ideas
+# Improvements & Ideas
 *Dapp*
 - Start chatting with a teacher directly from the dapp
 
