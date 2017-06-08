@@ -13,7 +13,6 @@ declare var web3: any;
 export class ContractService {
     
     private account;
-    private provider;
     private web3 : Web3;
     private provider;
     private adsRegistryContract;
