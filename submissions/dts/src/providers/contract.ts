@@ -7,10 +7,13 @@ import * as contract from 'truffle-contract';
 import {Http} from '@angular/http';
 import { environment }    from '../../environment';
 
+declare var web3: any;
+
 @Injectable()
 export class ContractService {
     
     private account;
+    private provider;
     private web3 : Web3;
     private adsRegistryContract;
     private teacherRegistryContract;
@@ -21,31 +24,35 @@ export class ContractService {
     constructor(private logger: Logger, private ethereumService: EthereumService, private http: Http, private utils: UtilsService) {
         var self = this;
         
-        const provider = new Web3.providers.HttpProvider(environment.rpcurl)
-        this.web3 = new Web3(provider) 
+        if (typeof web3 !== 'undefined') {
+            this.provider = web3.currentProvider;
+        } else {
+            this.provider = new Web3.providers.HttpProvider(environment.rpcurl);
+        }
+        this.web3 = new Web3(this.provider);
 
         self.logger.debug("contracts/AdsRegistry.json");
         this.http.get("contracts/AdsRegistry.json").subscribe(data => {
             self.adsRegistryContract = contract(data.json())
-            self.adsRegistryContract.setProvider(provider)
+            self.adsRegistryContract.setProvider(self.provider)
         });
         
         self.logger.debug("contracts/TeacherRegistry.json");
         this.http.get("contracts/TeacherRegistry.json").subscribe(data => {
             self.teacherRegistryContract = contract(data.json())
-            self.teacherRegistryContract.setProvider(provider)
+            self.teacherRegistryContract.setProvider(self.provider)
         });
         
         self.logger.debug("contracts/CourseRegistry.json");
         this.http.get("contracts/CourseRegistry.json").subscribe(data => {
             self.courseRegistryContract = contract(data.json())
-            self.courseRegistryContract.setProvider(provider)
+            self.courseRegistryContract.setProvider(self.provider)
         });
         
         self.logger.debug("contracts/Course.json");
         this.http.get("contracts/Course.json").subscribe(data => {
             self.courseContract = contract(data.json())
-            self.courseContract.setProvider(provider)
+            self.courseContract.setProvider(self.provider)
         });
         
         
@@ -99,7 +106,7 @@ export class ContractService {
     public publishAds (title, description, discipline) {
         var self = this;
         
-        self.logger.debug("publishAds(title="+title+", description="+description+", discipline="+discipline+"): START");
+        self.logger.debug("publishAds(title="+title+", description="+description+", discipline="+discipline+", from="+ self.account+"): START");
 
         return new Promise(function(resolve, reject) {
             

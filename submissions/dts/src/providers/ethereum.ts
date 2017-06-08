@@ -3,14 +3,21 @@ import Web3 from 'web3'
 import { Logger } from "angular2-logger/core";
 import { environment }    from '../../environment';
 
+declare var web3: any;
+
 @Injectable()
 export class EthereumService {
     
     private web3 : Web3;
+    private provider;
     
     constructor(private logger: Logger) {
-        const provider = new Web3.providers.HttpProvider(environment.rpcurl)
-        this.web3 = new Web3(provider) 
+        if (typeof web3 !== 'undefined') {
+            this.provider = web3.currentProvider;
+        } else {
+            this.provider = new Web3.providers.HttpProvider(environment.rpcurl);
+        }
+        this.web3 = new Web3(this.provider);
     }
  
     public getAddresses() {

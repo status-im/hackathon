@@ -26,5 +26,9 @@ testrpc --account="0x0f9c44961bba06b146bd6a652ecbf944dcb6c06b74b7e3997b0cc38d25e
 
 truffle migrate --compile-all --reset ; cp -R ./build/contracts/ ./www/contracts/
 
+in environment.ts, change `rpcurl: "http://130.211.50.165:8545"`
 
 ionic serve
+
+
+status-dev-cli add "{\"whisper-identity\": \"dts-app\", \"dapp-url\": \"http://130.211.50.165:8100\", \"name\": \"DTS\"}" --ip <DEVICE IP>
