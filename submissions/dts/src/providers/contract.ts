@@ -301,6 +301,8 @@ export class ContractService {
                             courses[i].endDate      = result[i].endDate
                             courses[i].amount       = result[i].amount
                             courses[i].state        = result[i].state
+                            courses[i].description  = result[i].description
+                            courses[i].level        = result[i].level
                         }
                         
                         resolve(courses);
