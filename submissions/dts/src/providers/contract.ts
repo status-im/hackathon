@@ -5,6 +5,7 @@ import { EthereumService } from './ethereum';
 import { UtilsService } from './utils';
 import * as contract from 'truffle-contract';
 import {Http} from '@angular/http';
+import { environment }    from '../../environment';
 
 @Injectable()
 export class ContractService {
@@ -20,7 +21,7 @@ export class ContractService {
     constructor(private logger: Logger, private ethereumService: EthereumService, private http: Http, private utils: UtilsService) {
         var self = this;
         
-        const provider = new Web3.providers.HttpProvider('http://192.168.0.23:8545')
+        const provider = new Web3.providers.HttpProvider(environment.rpcurl)
         this.web3 = new Web3(provider) 
 
         self.logger.debug("contracts/AdsRegistry.json");
