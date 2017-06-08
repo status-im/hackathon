@@ -4,7 +4,7 @@
   "proxies": [
     {
       "path": "/contracts",
-      "proxyUrl": "http://192.168.0.23"
+      "proxyUrl": "http://0.0.0.0"
     }
   ],
   "type": "ionic-angular"

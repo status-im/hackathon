@@ -20,7 +20,7 @@ export class ContractService {
     constructor(private logger: Logger, private ethereumService: EthereumService, private http: Http, private utils: UtilsService) {
         var self = this;
         
-        const provider = new Web3.providers.HttpProvider('http://192.168.0.23:8545')
+        const provider = new Web3.providers.HttpProvider('http://130.211.50.165:8545')
         this.web3 = new Web3(provider) 
 
         self.logger.debug("contracts/AdsRegistry.json");
