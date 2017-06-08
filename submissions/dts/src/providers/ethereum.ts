@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import Web3 from 'web3'
 import { Logger } from "angular2-logger/core";
+import { environment }    from '../../environment';
 
 @Injectable()
 export class EthereumService {
@@ -8,7 +9,7 @@ export class EthereumService {
     private web3 : Web3;
     
     constructor(private logger: Logger) {
-        const provider = new Web3.providers.HttpProvider('http://130.211.50.165:8545')
+        const provider = new Web3.providers.HttpProvider(environment.rpcurl)
         this.web3 = new Web3(provider) 
     }
  
