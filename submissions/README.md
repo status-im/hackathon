@@ -1,7 +1,7 @@
 # Description
-DTS (Decentralized Tutoring System) or MyTutor is a decentralized app (dapp) that bring teachers/tutors and students closer.
+DTS (Decentralized Tutoring System) or MyTutor is a decentralized app (dapp) that brings teachers/tutors and students closer witjout any intermediaries.
 
-I built this app to help my wife who works as a tutor and always find hard to get new students (she has to work with companies that take huge fees on each course), it's also hard communicate with students, manage the agenda, chase up for the payment, etc.
+I built this app to help my wife who works as a tutor and always find hard to get new students (she has to work with companies/intermediaries that take huge fees on each course), it's also hard communicate with students, manage the agenda, chase up for the payment, etc.
 That's why comes MyTutor
 
 The dapp is sort of assistant that allows teacher to publish an announce, the student can go through the ads and start chatting with a teacher (feature not available), after Q&A and agreeing a date, time and a price, the teacher can setup a course.
@@ -23,43 +23,76 @@ This application is built with:
 
 **geth**
 
-**testrpc** `npm install -g ethereumjs-testrpc`
+**testrpc** 
+`npm install -g ethereumjs-testrpc`
 
-**truffle** `npm install -g truffle`
+**truffle** 
+`npm install -g truffle`
 
-**status-dev-cli** `npm install -g status-dev-cli`
+**status-dev-cli** 
+`npm install -g status-dev-cli`
 
-**status-dev-cli** `npm install -g ionic`
+**status-dev-cli** 
+`npm install -g ionic`
 
 
 # Installation
 
 ## Download the code & go to the folder
-`git clone https://github.com/gjeanmart/hackathon.git`
+```
+git clone https://github.com/gjeanmart/hackathon.git
 
 cd hackathon/submissions/dts/
+```
 
 
 ## Install
-npm install
+`npm install`
 
 
-
-## Run testrpc
-testrpc --account="0x0f9c44961bba06b146bd6a652ecbf944dcb6c06b74b7e3997b0cc38d25e53ae5,10000000000000000000000" --account="0x0dfbc1dab22266e31be842632448179cf7ebce1b97a989c23545c4c16488971f,10000000000000000000000" --secure -u 0 -u 1 --hostname 0.0.0.0 --port 8546 &
+## Run Geth or testrpc
+`geth --fast --cache=1048 --testnet --unlock "0x................." --rpc --rpcapi "eth,net,web3" --rpccorsdomain '*' --rpcaddr 0.0.0.0 --rpcport 8545`
 
 
 ## Deploy the contracts
-truffle migrate --compile-all --reset --network development ; cp -R ./build/contracts/ ./www/contracts/
+`truffle migrate --compile-all --reset --network ropsten ; cp -R ./build/contracts/ ./www/`
 
 
 ## Configure your RPC URL endpoint
-in environment.ts, change `rpcurl: "http://130.211.50.165:8545"`
+in environment.ts, change `rpcurl: "http://x.x.x.x:8545"` by your node RPC URL
 
 
 ## Deplot the Mobile app
-ionic serve
+`ionic serve`
 
 
 ## Deploy the app in Statis
-status-dev-cli add "{\"whisper-identity\": \"dts-app\", \"dapp-url\": \"http://130.211.50.165:8100\", \"name\": \"MyTutor\"}" --ip <DEVICE IP>
+`status-dev-cli add "{\"whisper-identity\": \"dts\", \"dapp-url\": \"http://x.x.x.x:8100\", \"name\": \"MyTutor\"}" --ip <DEVICE IP>`
+
+
+# Demo
+You can test the dapp using Mist browser or GoogleChrome with Metamask : http://130.211.50.165:8100
+
+
+# Video
+The following demo demonstrates a teacher and student using MyTutor system through the Status mobile app.
+<link>
+
+
+# Improvments & Ideas
+Dapp
+- Start chatting with a teacher directly from the dapp
+
+Chatbot
+- Use a chatbot to remind the next course and access quickly to your course page in order to pay for example
+- Use a chatbot to propose interractives exercices/homework
+
+
+# Feedback
+- Dapp integration: Great, easy to use,
+- status-dev-cli watch doesn't work [link]
+- Chatbot: hard to understand the API and to use with web3 without Promise
+
+
+
+

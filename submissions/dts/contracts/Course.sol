@@ -31,7 +31,7 @@ contract Course is Ownable{
     uint            endDateTime;
     uint            amount;
     Common.Level    level;
-    bytes32         description;
+    bytes           description;
     Common.State    state;
 
     //***********************/
@@ -65,7 +65,7 @@ contract Course is Ownable{
     //***********************
     //* Constructor    
     //*
-    function Course(address _registry, address _studentAddress, address _teacherAddress, uint _startDateTime, uint _endDateTime, uint _amount, bytes32 _description, Common.Level _level) {  
+    function Course(address _registry, address _studentAddress, address _teacherAddress, uint _startDateTime, uint _endDateTime, uint _amount, bytes _description, Common.Level _level) {  
         registry        = _registry;
         studentAddress  = _studentAddress;
         teacherAddress  = _teacherAddress;
@@ -82,7 +82,7 @@ contract Course is Ownable{
     //***********************
     //* Getter   
     //*
-    function getCourseDetails() constant returns  (address _studentAddress, address _teacherAddress, uint _startDateTime, uint _endDateTime, uint _amount, Common.State, Common.Level, bytes32) {
+    function getCourseDetails() constant returns  (address _studentAddress, address _teacherAddress, uint _startDateTime, uint _endDateTime, uint _amount, Common.State, Common.Level, bytes) {
     
         return (studentAddress, teacherAddress, startDateTime, endDateTime, amount, state, level, description); 
     }

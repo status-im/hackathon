@@ -112,7 +112,7 @@ contract CourseRegistry {
     //***********************
     //* Public functions    
     //*
-    function registerCourse(address _studentAddress, uint _startDateTime, uint _endDateTime, uint _amount, bytes32 _description, Common.Level _level) {
+    function registerCourse(address _studentAddress, uint _startDateTime, uint _endDateTime, uint _amount, bytes _description, Common.Level _level) {
         
         // Build the contract
         address courseAddress = new Course(this, _studentAddress, msg.sender, _startDateTime, _endDateTime, _amount, _description, _level);
