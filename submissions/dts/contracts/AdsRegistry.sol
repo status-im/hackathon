@@ -2,7 +2,7 @@ pragma solidity ^0.4.8;
 
 //*********************************************************************
 //* @title AdsRegistry
-//* @dev 
+//* @dev  
 //* @author Gregoire JEANMART <gregoire.jeanmart at gmail.com> 
 //*********************************************************************
 contract AdsRegistry {
