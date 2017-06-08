@@ -4,14 +4,14 @@
       Courses
     </ion-title>
     
-    <ion-buttons end [hidden]="!isTeacher">
+    <ion-buttons end>
     
         <button ion-button icon-left (click)="seeHistory()">
           <ion-icon name="md-filing"></ion-icon>
           History
         </button>
     
-      <button ion-button (click)="addCourse()">
+      <button ion-button (click)="addCourse()" [hidden]="!isTeacher">
         <ion-icon name="md-add-circle"></ion-icon>
       </button>
     </ion-buttons>
