@@ -62,11 +62,11 @@ cd hackathon/submissions/dts/
 in environment.ts, change `rpcurl: "http://x.x.x.x:8545"` by your node RPC URL
 
 
-## Deplot the Mobile app
+## Deploy the Mobile app
 `ionic serve`
 
 
-## Deploy the app in Statis
+## Deploy the app in Status
 `status-dev-cli add "{\"whisper-identity\": \"dts\", \"dapp-url\": \"http://x.x.x.x:8100\", \"name\": \"MyTutor\"}" --ip <DEVICE IP>`
 
 
@@ -80,10 +80,10 @@ The following demo demonstrates a teacher and student using MyTutor system throu
 
 
 # Improvments & Ideas
-Dapp
+*Dapp*
 - Start chatting with a teacher directly from the dapp
 
-Chatbot
+*Chatbot*
 - Use a chatbot to remind the next course and access quickly to your course page in order to pay for example
 - Use a chatbot to propose interractives exercices/homework
 
