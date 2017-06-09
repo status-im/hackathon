@@ -8,15 +8,33 @@ The student has to make a payment into the contract before the course starts.
 Once the course is finished, the teacher can either release the payment to his account or refund (if cancelled for example).
 
 
-# Technologies
-This application is built with:
-- Truffle 3.1
-- Angular 2
-- Ionic 2
+# Technologies & Architecture 
+The dapp follows the following architrcture:
+Diagram 
+
+The backend contains three main contracts:
+- AdsRegistry: Registry for all Ads 
+- CourseRegistry: Registry for all courses. Contains a pointer to Course
+- Course: each course are a stored as a separated contract 
+The technologies and frameworks used are Solidity and Truffle 3.1
+
+
+The frontend is a mobile webapp with:
+- login page: sign-in as a student or a teacher (ability to create an ad and a course) 
+- landing page: displays your Ethereum address and balance 
+- ads: show the list of ads
+- ads-view: view the details of an ad
+- ads-add: Ad form to publish an ad
+- course: view all my current courses (created or paid) 
+- course-view: view the details of a course and pay (student) or release/refund (teacher) 
+- course-add: form to register a course 
+- course-history: view all my ended courses (ended, refunded or canceled) 
+The technologies and frameworks are JavaScript/Typescript, Ionic2 and Angular2
+
 
 
 # About me
-Software enginneer passionated into decentralisation, I tried to manage a few hours every nights to achieve this hackaton. It is a very strainghtforward use case but the aim was to illustrate how to disrupt and modernize a business case such as private tutoring.
+Software enginneer passionated into decentralisation and especially Ethereum. I tried to manage a few hours every nights to achieve this hackaton. It is a very strainghtforward use case but the aim was to illustrate how to disrupt and modernize a business case such as private tutoring.
 
 
 
@@ -91,14 +109,18 @@ You can test the dapp using Mist browser or GoogleChrome with Metamask : http://
 
 
 # Video
-The following demo illustrates a teacher and student using MyTutor system through the Status mobile app.
+The following demo illustrates a teacher and student using MyTutor system through the Status mobile app
 https://www.youtube.com/watch?v=OC8UeMsWDKs(some parts has been cut)
 
 
 # Improvements & Ideas
+This projecr is a prototype so obviously many things can be improved and implemented. For example:
 *Dapp*
-- Start chatting with a teacher directly from the dapp
+- Start chatting with a teacher directly from the dapp 
+- Store more relevant information 
 - Specific design
+- functions to cancel/update a course, unregister or update an ad
+- form validation 
 
 *Chatbot*
 - Use a chatbot to remind the next course 
@@ -107,15 +129,22 @@ https://www.youtube.com/watch?v=OC8UeMsWDKs(some parts has been cut)
 
 # Feedback
 
-- Dapp integration: 
-Great, easy to use. A working Mobile Ethereum gateway. The main Mobile frameworks (Ionic & ReactNative) are compatible and can be  easily integrated with tools like Truffle and Web3.
-I noticed some recurrent error [http://imgur.com/a/OGZUD]
+##Dapp integration: 
+Great, easy to use. A working Mobile Ethereum gateway. The main Mobile frameworks (Ionic & ReactNative) are compatible and can be  easily integrated with tools like Truffle and Web3. That's an important step forward for public adoption. 
+I've noticed some recurrent error [http://imgur.com/a/OGZUD]
 
+## Tools
+Do the job. 
 - status-dev-cli watch doesn't work [https://github.com/status-im/status-dev-cli/issues/11]
 
-- Chatbot: hard to understand the API and to use with web3 without Promise
-I tried to make a chabot linked to this dapp but it was too short time to make something working. My general impression is an outline 
+## Chatbot: 
+The first intention was to build a dapp and a chat bit but unfortunately I run out of time. Even it's the idea of a chat API is really great, this particular API is currently hard to understand tand no really documented. 
+I would like to see in this api:
+- Ability to add a contact and start a chat with one or multiple person/robot 
+- Use of promise, requirejs to facilitate the integration with dapp
 
+## Status app
+Except a few instabilities sometimes, the app is clear and easy to use. 
 
 
 
