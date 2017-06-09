@@ -10,7 +10,7 @@ Once the course is finished, the teacher can either release the payment to his a
 
 # Technologies & Architecture 
 The dapp follows the following architrcture:
-Diagram 
+<Diagram>
 
 The backend contains three main contracts:
 - AdsRegistry: Registry for all Ads 
@@ -29,6 +29,7 @@ The frontend is a mobile webapp with:
 - course-view: view the details of a course and pay (student) or release/refund (teacher) 
 - course-add: form to register a course 
 - course-history: view all my ended courses (ended, refunded or canceled) 
+
 The technologies and frameworks are JavaScript/Typescript, Ionic2 and Angular2
 
 
@@ -129,7 +130,7 @@ This projecr is a prototype so obviously many things can be improved and impleme
 
 # Feedback
 
-##Dapp integration: 
+## Dapp integration: 
 Great, easy to use. A working Mobile Ethereum gateway. The main Mobile frameworks (Ionic & ReactNative) are compatible and can be  easily integrated with tools like Truffle and Web3. That's an important step forward for public adoption. 
 I've noticed some recurrent error [http://imgur.com/a/OGZUD]
 
