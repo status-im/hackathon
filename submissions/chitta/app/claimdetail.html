@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitta - Tokenized Communal Land Associations</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="./app.js"></script>
+  <script>
+    $( function() {
+      $("#tabs").tabs();
+    });
+  </script>
+</head>
+<body onload="App.validateUserAndShowUsername();App.loadNewClaimDetail()">
+  <div id="loadingDiv" style="position:absolute;left: 0;  right: 0;  margin-left: auto; top:250px; margin-right: auto; width: 100px;display:none;">
+    <img src="http://www.hotwater.com/images/ajax-loader.gif" alt="Processing... Please wait!!!" />
+  </div>
+  <h1>Chitta - </h1>
+  <h2>Tokenized Communal Land Associations</h2>
+  <div  style="float:right">
+    <span style="color:#8bff77">Welcome </span> <span id="currentUserName"></span> <button onclick="App.logoutUser()">Logout</button>
+  </div>
+  <br /><br />
+  <div style="margin-left:25%;margin-right:25%" id="newClaimScreen">
+    <h3>Create a new claim</h3>
+    <h4>Legal and factual check</h4>
+    <p>
+      To verify if you are the rightfull owner of the land, we ask you to fill in the following fields:
+    </p>
+    <br><label for="landname">Land Name :</label><input type="text" id="landname" placeholder="Land Name" maxlength="32"></input>
+    <br><label for="chittacode">Chitta Code :</label><input type="text" id="chittacode" placeholder="Chitta Code" maxlength="32"></input>
+    <br><label for="usage">Usage :</label><input type="text" id="usage" placeholder="e.g., Agriculture, Plot, etc,." maxlength="32"></input>
+    <br><label for="size">Size in sq feet:</label><input type="number" id="size" placeholder="e.g., 1000" readonly="readonly"></input>
+    <br><label for="rainwater">Rainwater in liters :</label><input type="number" id="rainwater" placeholder="e.g., 500"></input>
+    <br><label for="fromhighway">KM from Highway :</label><input type="number" id="fromhighway" placeholder="e.g., 8"></input>
+    <br><label for="located">Located In :</label><input type="radio" name="located" value="true" style="width:20px;" checked="checked"> <span style="font-size:15px;">City </span> <input type="radio" name="located" value="false" style="width:20px;"> <span style="font-size:15px;">Village</span>
+
+    <br /><br />
+    <div style="text-align:center">
+        <button onclick="App.addNewClaim()" id="addClaimButton">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="home.html" class="buttontype" style="background-color: gray;" >Cancel</a>
+    </div>
+  </div>
+  <span id="status"></span>
+  <br>
+</body>
+</html>

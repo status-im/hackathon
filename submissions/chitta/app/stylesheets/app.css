@@ -1,0 +1,257 @@
+body {
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 2%;
+  font-family: "Open Sans", sans-serif;
+  background: url("http://hdqwalls.com/download/gradient-texture-cubes-2048x1152.jpg");
+}
+
+dialog {
+    width: 500px;
+    height: 250px;
+    background:#e8e8e8;
+    border: 1px solid #dadada;
+    font-family:sans-serif;
+    padding: 5px 10px 20px 20px;
+    top: 25%;
+}
+
+.ui-tabs .ui-tabs-nav .ui-tabs-active
+{
+   background-color: #359c00;
+   border: 1px solid #359c00;
+}
+
+.ui-tabs .ui-tabs-panel {
+  background-color: #0a838b;
+  height: 500px;
+}
+
+label {
+  display: inline-block;
+  width: 200px;
+  color: #c6e8c0;
+}
+
+input {
+  width: 400px;
+  padding: 4px;
+  font-size: 13px;
+  border-radius: 4px;
+  margin: 2px;
+}
+
+button {
+  display: inline-block;
+  border-radius: 6px;
+  background-color: #359c00;
+  border: none;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.buttontype {
+  display: inline-block;
+  border-radius: 6px;
+  background-color: #359c00;
+  border: none;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+h1, h2 {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: #1ec500;
+}
+
+span {
+  color: white;
+}
+
+p {
+  color: #c6e8c0;
+  font-size: 16px;
+}
+
+li {
+  color: white;
+  font-size: 16px;
+}
+
+h2 {
+  color: #c6e8c0;
+  font-size: 30px;
+}
+
+h3 {
+  font-weight: normal;
+  color: #1ec500;
+  font-size: 25px;
+}
+
+h4 {
+  color: wheat;
+}
+
+.black {
+  color: black;
+}
+
+#balance {
+  color: black;
+}
+.pane {
+  display: inline-block;
+  overflow-y: auto;
+  max-height:530px;
+  width:100%;
+}
+
+table#reviewStatusTable {
+  font-size: 13px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+#reviewStatusTable th {
+    border: 1px solid #005a67;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: #005a67;
+    color: #c6e8c0;
+    text-align: left;
+    padding: 8px;
+}
+
+#reviewStatusTable td {
+  border: 1px solid #005a67;
+  text-align: left;
+  padding: 8px;
+  color: #808080;
+  background-color: white;
+}
+
+
+table#exchangeclaims {
+  font-size: 13px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+#exchangeclaims th {
+    border: 1px solid #005a67;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: #005a67;
+    color: #c6e8c0;
+    text-align: left;
+    padding: 8px;
+}
+
+#exchangeclaims td {
+  border: 1px solid #005a67;
+  text-align: left;
+  padding: 8px;
+  color: white;
+}
+
+table#claims {
+  font-size: 13px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+#claims th {
+    border: 1px solid #005a67;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: #005a67;
+    color: #c6e8c0;
+    text-align: left;
+    padding: 8px;
+}
+
+#claims td {
+  border: 1px solid #005a67;
+  text-align: left;
+  padding: 8px;
+  color: white;
+}
+
+table#associationclaims {
+  font-size: 13px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+#associationclaims th {
+    border: 1px solid #005a67;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: #005a67;
+    color: #c6e8c0;
+    text-align: left;
+    padding: 8px;
+}
+
+#associationclaims td {
+  border: 1px solid #005a67;
+  text-align: left;
+  padding: 8px;
+  color: white;
+}
+
+.created {
+  background-color: #359c00;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+.located {
+  background-color: #359c00;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.pricecalcuated {
+  background-color: #ffa500;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.review {
+  background-color: #741f84;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.readyforsale {
+  background-color: #359c00;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}

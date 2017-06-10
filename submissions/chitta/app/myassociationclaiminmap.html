@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitta - Tokenized Communal Land Associations</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="./app.js"></script>
+  <script>
+      window.scribblemaps = {
+          settings:
+              {
+                  "baseAPI": "google",
+                  "key": "AIzaSyBIvApuKkb2fHt2OXQc-5upt0JtsgDLQAY"
+              }
+      }
+  </script>
+  <script src="//scribblemaps.com/api/js/">
+  </script>
+</head>
+<body onload="App.validateUserAndShowUsernameAndViewMyAssociationClaimMap()">
+  <h1>Chitta - </h1>
+  <h2>Tokenized Communal Land Associations</h2>
+  <div  style="float:right">
+    <span style="color:#8bff77">Welcome </span> <span id="currentUserName"></span> <button onclick="App.logoutUser()">Logout</button>
+  </div>
+  <br /><br />
+  <div style="float:right">
+    <a href="home.html" class="buttontype" style="background-color: gray;" >Back</a>
+  </div>
+  <h3>My Association Claims</h3>
+  <div id="ScribbleMap" style="height: 600px;"></div>
+  <br /><br />
+
+  <span id="status"></span>
+  <br>
+</body>
+</html>
