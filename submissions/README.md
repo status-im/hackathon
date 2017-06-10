@@ -3,6 +3,7 @@
 
 
 Submission: https://github.com/status-im/hackathon/issues/35
+
 Settings:
 ```
 {
@@ -126,7 +127,7 @@ You can test the dapp using Mist browser or GoogleChrome with Metamask : http://
 
 ## Video
 The following demo illustrates a teacher and student using MyTutor system through the Status mobile app
-https://www.youtube.com/watch?v=OC8UeMsWDKs(some parts has been cut)
+https://www.youtube.com/watch?v=OC8UeMsWDKs (some parts has been cut)
 
 
 ## Improvements & Ideas
