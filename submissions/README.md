@@ -1,4 +1,19 @@
-# Description
+
+# MyTytor / DTS (Decentralized Turoring System)
+
+
+Submission: https://github.com/status-im/hackathon/issues/35
+Settings:
+```
+{
+    "whisper-identity": "35-dts",
+    "name":             "#35 MyTutor",
+    "dapp-url":         "http://130.211.50.165:8100"
+}
+ ```
+
+
+## Description
 DTS (Decentralized Tutoring System) or MyTutor is a decentralized app (dapp) that brings teachers/tutors and students closer without any intermediaries.
 
 I built this app to help my girlfriend who works as a tutor and always find hard to get new students (she has to work with companies/intermediaries that take huge fees on each course), it's also hard communicate with students, manage the agenda, chase up for the payment, etc. That's why comes MyTutor
@@ -8,7 +23,7 @@ The student has to make a payment into the contract before the course starts.
 Once the course is finished, the teacher can either release the payment to his account or refund (if cancelled for example).
 
 
-# Technologies & Architecture 
+## Technologies & Architecture 
 The dapp follows the following architrcture:
 <Diagram>
 
@@ -34,12 +49,12 @@ The technologies and frameworks are JavaScript/Typescript, Ionic2 and Angular2
 
 
 
-# About me
+## About me
 Software enginneer passionated into decentralisation and especially Ethereum. I tried to manage a few hours every nights to achieve this hackaton. It is a very strainghtforward use case but the aim was to illustrate how to disrupt and modernize a business case such as private tutoring.
 
 
 
-# Requirements
+## Requirements
 The following tools has been use to developp this project:
 
 **nodeJS**
@@ -59,10 +74,10 @@ The following tools has been use to developp this project:
 `npm install -g ionic`
 
 
-# Installation
+## Installation
 Procedure to run this project:
 
-## Download the code & go to the folder
+### Download the code & go to the folder
 ```
 git clone https://github.com/gjeanmart/hackathon.git
 
@@ -70,51 +85,51 @@ cd hackathon/submissions/dts/
 ```
 
 
-## Install
+### Install
 ```
 npm install
 ```
 
 
-## Run Geth or testrpc
+### Run Geth or testrpc
 
 ```
 geth --fast --cache=1048 --testnet --unlock "0x................." --rpc --rpcapi "eth,net,web3" --rpccorsdomain '*' --rpcaddr 0.0.0.0 --rpcport 8545
 ```
 
 
-## Deploy the contracts
+### Deploy the contracts
 ```
 truffle migrate --compile-all --reset --network ropsten ; cp -R ./build/contracts/ ./www/
 ```
 
 
-## Configure your RPC URL endpoint
+### Configure your RPC URL endpoint
 in environment.ts, change `rpcurl: "http://x.x.x.x:8545"` by your node RPC URL
 
 
-## Deploy the Mobile app
+### Deploy the Mobile app
 ```
 ionic serve
 ```
 
 
-## Deploy the app in Status
+### Deploy the app in Status
 ```
 status-dev-cli add "{\"whisper-identity\": \"dts\", \"dapp-url\": \"http://x.x.x.x:8100\", \"name\": \"MyTutor\"}" --ip <DEVICE IP>
 ```
 
 
-# Demo
+## Demo
 You can test the dapp using Mist browser or GoogleChrome with Metamask : http://130.211.50.165:8100
 
 
-# Video
+## Video
 The following demo illustrates a teacher and student using MyTutor system through the Status mobile app
 https://www.youtube.com/watch?v=OC8UeMsWDKs(some parts has been cut)
 
 
-# Improvements & Ideas
+## Improvements & Ideas
 This projecr is a prototype so obviously many things can be improved and implemented. For example:
 *Dapp*
 - Start chatting with a teacher directly from the dapp 
@@ -128,23 +143,23 @@ This projecr is a prototype so obviously many things can be improved and impleme
 - Use a chatbot to propose interractives exercices/homeworks
 
 
-# Feedback
+## Feedback
 
 ## Dapp integration: 
 Great, easy to use. A working Mobile Ethereum gateway. The main Mobile frameworks (Ionic & ReactNative) are compatible and can be  easily integrated with tools like Truffle and Web3. That's an important step forward for public adoption. 
 I've noticed some recurrent error [http://imgur.com/a/OGZUD]
 
-## Tools
+### Tools
 Do the job. 
 - status-dev-cli watch doesn't work [https://github.com/status-im/status-dev-cli/issues/11]
 
-## Chatbot: 
+## #Chatbot: 
 The first intention was to build a dapp and a chat bit but unfortunately I run out of time. Even it's the idea of a chat API is really great, this particular API is currently hard to understand tand no really documented. 
 I would like to see in this api:
 - Ability to add a contact and start a chat with one or multiple person/robot 
 - Use of promise, requirejs to facilitate the integration with dapp
 
-## Status app
+## #Status app
 Except a few instabilities sometimes, the app is clear and easy to use. 
 
 
