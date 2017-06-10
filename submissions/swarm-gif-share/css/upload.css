@@ -1,0 +1,51 @@
+#upload-container {
+    text-align: center;
+}
+
+#imgupload {
+    margin-bottom: 5px;
+}
+
+#info-fields {
+    display: none;  
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+#imgpreview {
+    display: none;  
+    margin-top 5px;
+}
+
+#logo-container {
+    text-align: center;
+}
+
+#name-logo {
+    font-weight: bold;
+    font-size: 30px;
+    color: #ff4b1f;
+    color: -webkit-linear-gradient(to right, #ff4b1f, #ff9068);
+    color: linear-gradient(to right, #ff4b1f, #ff9068);
+}
+
+#uploadbtn-container {
+    text-align: center;
+    margin-top: 5px;
+}
+
+#uploadbtn {
+    background: #ff4b1f;
+    background: -webkit-linear-gradient(bottom left, #ff4b1f 0%, #ff9068 100%);
+    background: -o-linear-gradient(bottom left, #ff4b1f 0%, #ff9068 100%);
+    background: linear-gradient(to top right, #ff4b1f 0%, #ff9068 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4b1f', endColorstr='#ff9068',GradientType=1 );
+    color: white;
+    border: none;
+    display: none;
+}
+
+.choosebox {
+    margin: 5px;
+}
