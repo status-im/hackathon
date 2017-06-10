@@ -83,6 +83,12 @@ function choose4() {
     //}
 //}
 
+function uploadFailure() {
+    document.getElementById("alertbox").innerHTML = '<div class="alert alert-success">Tip successful!</div>';
+    $("tipbox").hide();
+    document.getElementById("tipbutton").style.display = "inline";
+}
+
 function uploadFile() {
     
     // Create JSON to upload
@@ -100,7 +106,8 @@ function uploadFile() {
             if (!err) {
                 window.location.href = "i.html?i=" + hash;
             } else {
-                console.log("Oops, something went wrong :(");            }
+                uploadFailure();            
+            }
         });
     });
         

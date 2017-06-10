@@ -16,12 +16,13 @@
     <link rel="stylesheet" href="css/upload.css" type="text/css">
 </head>
 <body>
+   <div id="alertbox"></div>
     <div id="logo-container">
         <a id="name-logo" href="index.html">Gifhive</a>
     </div>
     <div class="alert alert-danger"><b>Note:</b> You can only upload one of four pre-picked images, due to a bug in Status regarding file uploads!</div>
     <div id="upload-container">
-        <input type="button" id="imgupload" class="btn" data-toggle="modal" data-target="#myModal" value="Pick a gif!">
+        <input type="button" id="imgupload" class="btn btn-danger" data-toggle="modal" data-target="#myModal" value="Pick a gif!">
         <img src="" height="200" alt="Image preview..." id="imgpreview">
         <div id="info-fields">
             <input type="text" class="form-control" placeholder="Caption" id="imgcaption-input">

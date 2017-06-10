@@ -35,11 +35,16 @@ function openTip() {
 }
 
 function tipSuccess() {
-    document.getElementById("successbox").innerHTML = '<div class="alert alert-success">Tip successful!</div>';
+    document.getElementById("alertbox").innerHTML = '<div class="alert alert-success">Tip successful!</div>';
     $("tipbox").hide();
     document.getElementById("tipbutton").style.display = "inline";
 }
 
+function tipFailure() {
+    document.getElementById("alertbox").innerHTML = '<div class="alert alert-danger">Something went wrong!</div>';
+    $("tipbox").hide();
+    document.getElementById("tipbutton").style.display = "inline";
+}
 
 var tipamount = 5;
 document.getElementById("tipamount").innerHTML = tipamount;
@@ -66,6 +71,8 @@ $("#tipamountbutton").on("click", function(){
     web3.eth.sendTransaction({from: sender, to: recipient, value: weiAmount}, function(err) {
         if (!err) {
             tipSuccess();
+        } else {
+            tipFailure();
         }
     });
 });
