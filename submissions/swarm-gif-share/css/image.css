@@ -1,0 +1,19 @@
+#logo-container {
+    text-align: center;
+}
+
+#name-logo {
+    font-weight: bold;
+    font-size: 30px;
+    color: #ff4b1f;
+    color: -webkit-linear-gradient(to right, #ff4b1f, #ff9068);
+    color: linear-gradient(to right, #ff4b1f, #ff9068);
+}
+
+#imagecontainer {
+    text-align: center;
+}
+
+#image {
+    width: 20em;
+}

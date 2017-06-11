@@ -1,0 +1,57 @@
+#logo-container {
+    text-align: center;
+}
+
+#name-logo {
+    font-weight: bold;
+    font-size: 30px;
+    color: #ff4b1f;
+    color: -webkit-linear-gradient(to right, #ff4b1f, #ff9068);
+    color: linear-gradient(to right, #ff4b1f, #ff9068);
+}
+
+#searchbox {
+    width: 75%;
+    margin-right: 5px;
+}
+
+#searchbox:focus {
+    border-color: #ff4b1f;
+}
+
+#search-btn {
+    background: #ff4b1f;
+    background: -webkit-linear-gradient(bottom left, #ff4b1f 0%, #ff9068 100%);
+    background: -o-linear-gradient(bottom left, #ff4b1f 0%, #ff9068 100%);
+    background: linear-gradient(to top right, #ff4b1f 0%, #ff9068 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4b1f', endColorstr='#ff9068',GradientType=1 );
+    color: white;
+    border: none;
+}
+
+#account-p {
+    margin-top: 150px;
+}
+
+
+#upload-btn-container {
+    text-align: center;
+}
+
+#upload-btn {
+    background: #ff4b1f;
+    background: -webkit-linear-gradient(bottom left, #ff4b1f 0%, #ff9068 100%);
+    background: -o-linear-gradient(bottom left, #ff4b1f 0%, #ff9068 100%);
+    background: linear-gradient(to top right, #ff4b1f 0%, #ff9068 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4b1f', endColorstr='#ff9068',GradientType=1 );
+    color: white;
+    border: none;
+}
+
+#recent {
+    text-align: center;
+}
+
+#recentimage {
+    width: 20em;
+}
