@@ -1,8 +1,30 @@
-# Status $25,000 Global Hackathon
+# Chatbot for Status Hackathon
 
-Extend Status with commands, create decentralized chatbots or mobile-ready your web DApp to win prizes.
 
-http://hackathon.status.im  
+Hackathon GitHub Issue: https://github.com/status-im/hackathon/issues/83
 
-http://docs.status.im
+```
+{
+    "whisper-identity": "83-eth-lend-chatbot",
+    "name": "#83 Eth Lend Chatbot",
+    "dapp-url": "http://aaroncolaco.com/status-hackathon/",
+    "bot-url": "http://aaroncolaco.com/status-hackathon/bots/bot.js"
+}
+```
 
+
+## Useage
+
+* Install npm module `status-dev-cli`
+* Install Status app on phone
+* Enable `debug` mode in app console
+* Install and run npm module `http-server` in a separate tab of terminal
+* Get Android phone IP using `status-dev-cli scan`
+* Deploy to android using:
+```console
+status-dev-cli add '{"whisper-identity": "<appName - lower camel case>", "bot-url": "<MachineIP>:<PORT>/bots/<filename.js>", "name": "<AppName - upper camel case>"}' --ip <PhoneIP got from scan command>
+```
+* Watcher to auto deploy on file changes: `status-dev-cli watch $PWD "<appName - lower camel case>" --ip <PhoneIP got from scan command>`
+
+## Notes
+- [Demo Video](https://www.youtube.com/watch?v=ySuhFcCnydM)
