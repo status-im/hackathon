@@ -2,7 +2,7 @@
 # MyTytor / DTS (Decentralized Turoring System)
 
 
-Submission: https://github.com/status-im/hackathon/issues/35
+Submission: [#35](https://github.com/status-im/hackathon/issues/35)
 
 Settings:
 ```
@@ -133,6 +133,7 @@ https://www.youtube.com/watch?v=OC8UeMsWDKs (some parts has been cut)
 
 ## Improvements & Ideas
 This projecr is a prototype so obviously many things can be improved and implemented. For example:
+
 *Dapp*
 - Start chatting with a teacher directly from the dapp 
 - Store more relevant information 
