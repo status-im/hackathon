@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script src="/vendors/jquery.min.js"></script>
+    <script src="/vendors/numeral.min.js"></script>
+    <script type="text/javascript" src="../build/bundle.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      var drawChart;
+      $(document).ready(function() {
+        var loader = "<img src='./giphy.gif' style=\"display:block;margin:auto;\"></img>"
+        console.log('loader', loader)
+        $('#chart_div').html(loader)
+        getTokenRanking(null, parsed.account, function(result){
+          var tops = result['tops'].map(function(d){return [d.key, d.sum]})
+          var total =  tops.length;
+          tops.unshift(['key', 'amount'])
+          drawChart = function() {
+            var data = google.visualization.arrayToDataTable(
+              tops
+            );
+            var sum = numeral(result['your_rank'].sum).format('0,0');
+            var options = {
+              title: 'Token distribution histogram',
+              vAxis:{title:'Number of token holders'},
+              hAxis:{title:'Your ' + sum + ' token is ' + result['your_rank'].rank + 'th/' + total + ' among other token holders'},
+              legend: { position: 'none' },
+              histogram: { lastBucketPercentile: 22  },
+              // histogram: { bucketSize: 10 }
+            };
+            console.log('tops', tops)
+            var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+            chart.draw(data, options);
+          }
+          google.charts.setOnLoadCallback(drawChart);
+          $(window).resize(function(){
+            drawChart();
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+  </body>
+</html>
