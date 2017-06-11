@@ -1,0 +1,19 @@
+{
+	"lockfile_version": "1",
+	"version": "1.0.5",
+	"package_name": "oraclize",
+	"meta": {
+		"license": "MIT",
+		"authors": [
+			"Oraclize Ltd <info@oraclize.it>"
+    	],
+    	"description": "Ethereum Oraclize API",
+    	"keywords": [
+     		"oracles"
+    	]
+  	},
+  	"sources": {
+    	"./contracts/usingOraclize.sol": "ipfs://QmWrjVJkSUhpBbM7TR4hN1kxiuFjzhvEobEwtLgquaCfPi" 
+	}
+}
+
