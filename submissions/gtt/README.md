@@ -1,5 +1,6 @@
 # Genesis Token Tracker (GTT)
 
+Hackathon Github Issues https://github.com/status-im/hackathon/issues/31
 
 {"whisper-identity": "31-genesis-token-tracker",
  "name":             "#31 Genesis Token Tracker (GTT)",
