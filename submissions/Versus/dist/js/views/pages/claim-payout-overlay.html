@@ -1,0 +1,9 @@
+<div class="paybox-text"><div class="paybox-rules"><h1>
+ Estimated refund: {{ctrl.ratedCount * ctrl.fee}} eth
+</h1>
+
+<h3>You have polled {{ctrl.ratedCount}} versuses.<br><br>In order to submit your results you have to pay the transaction fee.<br><br>After the transaction is completed you will receive back {{ ctrl.fee * ctrl.ratedCount }} Ether.<br><br>Press "Submit" to confirm.
+</h3></div></div>
+<btn class="btn btn-default dismiss-btn" ng-click="ctrl.feedMode=true;"> Dismiss</btn>
+<btn class="btn btn-primary submit-btn" ng-click="ctrl.submitPolls()"> Submit </btn>
+

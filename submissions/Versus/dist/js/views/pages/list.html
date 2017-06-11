@@ -1,0 +1,41 @@
+
+
+<div ng-show="ctrl.feedMode">
+    <div class="paybox-text"><div class="paybox-rules"><h1>
+	Versus Feed
+    </h1>
+    <h3> Choose one image from a pair and earn tokens. The more pairs you submit at once, the larger refund you get. Because of transaction fees it's better to submit several pairs.  </h3>
+    </h3></div></div>
+    
+    
+    <div class="panel panel-default ng-scope" ng-repeat="versus in ctrl.feed | orderBy: 'pairId'" >
+	<div class="panel-heading">
+	    <h3 class="panel-title">{{ versus.title}}</h3>
+	</div>
+
+	
+	
+	<div class="panel-body ng-binding">
+	    
+	    <div class="col-xs-6 col-no-padding" ng-class="{'active':versus.selectedA, 'unselected': versus.unselectedA}">
+		<img class="versus-img" ng-click="ctrl.tap(versus, 'A')" ng-src="{{versus.imageSrcA}}"></img><div class="selected-filter"><i class="fa fa-check-circle" aria-hidden="true"></i>
+		</div>
+	    </div>
+	    <div class="col-xs-6  col-no-padding" ng-class="{'active':versus.selectedB, 'unselected': versus.unselectedB}">
+		<img ng-src="{{versus.imageSrcB}}" ng-click="ctrl.tap(versus, 'B')" class="versus-img"></img>
+		<div class="selected-filter"><i class="fa fa-check-circle" aria-hidden="true"></i>
+		</div>
+	    </div>	   	    
+	</div>
+
+    </div>
+    
+    <a class="btn btn-block btn-lg btn-primary scrollable-footer claim-btn" ng-if="ctrl.canConfirm && ctrl.feedMode" ng-click="ctrl.feedMode=false;">  Claim Payout ~ {{ctrl.ratedCount}} </a>
+</div>	    
+
+
+<div  ng-hide="ctrl.feedMode">
+  <div  ng-include="'js/views/pages/claim-payout-overlay.html'"> </div>
+</div>
+
+
