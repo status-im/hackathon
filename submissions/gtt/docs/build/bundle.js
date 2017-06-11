@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 37);
+/******/ 	return __webpack_require__(__webpack_require__.s = 36);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1753,7 +1753,7 @@
 
 var BigNumber = __webpack_require__(12);
 var sha3 = __webpack_require__(13);
-var utf8 = __webpack_require__(65);
+var utf8 = __webpack_require__(64);
 
 var unitMap = {
     'noether':      '0',
@@ -2374,8 +2374,8 @@ module.exports = {
 
 var BigNumber = __webpack_require__(12);
 var utils = __webpack_require__(2);
-var c = __webpack_require__(16);
-var SolidityParam = __webpack_require__(29);
+var c = __webpack_require__(15);
+var SolidityParam = __webpack_require__(30);
 
 
 /**
@@ -2609,7 +2609,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(3);
-var SolidityParam = __webpack_require__(29);
+var SolidityParam = __webpack_require__(30);
 
 /**
  * SolidityType prototype is used to encode/decode solidity params of certain type
@@ -2893,8 +2893,8 @@ module.exports = SolidityType;
  */
 
 var utils = __webpack_require__(2);
-var config = __webpack_require__(16);
-var Iban = __webpack_require__(18);
+var config = __webpack_require__(15);
+var Iban = __webpack_require__(17);
 
 /**
  * Should the format output to a big number
@@ -6809,8 +6809,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! bignumber.js v2.0.7 https://github.com/Mik
  * @date 2015
  */
 
-var CryptoJS = __webpack_require__(41);
-var sha3 = __webpack_require__(26);
+var CryptoJS = __webpack_require__(40);
+var sha3 = __webpack_require__(27);
 
 module.exports = function (value, options) {
     if (options && options.encoding === 'hex') {
@@ -6829,29 +6829,6 @@ module.exports = function (value, options) {
 
 /***/ }),
 /* 14 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (immutable) */ __webpack_exports__["token"] = token;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__web3_promise__ = __webpack_require__(20);
-
-const token_address = '0x4bda828f1fe628973c39366263b78b7cd9d6d8fe';
-const abi = __webpack_require__(28);
-
-function token() {
-  return new Promise(function(resolve, reject){
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__web3_promise__["a" /* default */])().then(function(promise){
-      resolve(promise.web3.eth.contract(abi).at(token_address));
-    })
-  })
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (token);
-
-
-/***/ }),
-/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -7160,7 +7137,7 @@ function token() {
 }));
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -7245,7 +7222,7 @@ module.exports = {
 
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -7488,7 +7465,7 @@ module.exports = Filter;
 
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -7721,7 +7698,7 @@ module.exports = Iban;
 
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -7841,15 +7818,133 @@ module.exports = {
 
 
 /***/ }),
+/* 19 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBalances", function() { return getBalances; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTransactionHistory", function() { return getTransactionHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateUrl", function() { return generateUrl; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__web3_promise__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__token__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_web3__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_web3___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_web3__);
+
+
+
+const web3Util = new __WEBPACK_IMPORTED_MODULE_2_web3___default.a();
+
+const one_month_ago = 874999
+
+function getBalance(address){
+  return new Promise(function(resolve,reject){
+    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__token__["a" /* default */])().then(function(t){
+      return t.balanceOf.call(address, function(err, result){
+        return resolve(result)
+      })
+    })
+  });
+}
+
+function getBalances(balance, account, array){
+  let initial_balance = balance;
+  let result = array.map(function(a){
+    var obj = {
+      balance:balance,
+      value: a.value,
+      from: a.from,
+      to: a.to,
+      timestamp: a.timestamp,
+      block:a.block
+    }
+    if (account == obj.to) {
+      balance-= a.value;
+    }else{
+      balance+= a.value;
+    }
+    return obj;
+  })
+  result.unshift({
+    balance:initial_balance,
+    timestamp: new Date()
+  })
+  return result;
+}
+
+function getTransactionHistory(account, cb){
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__token__["a" /* default */])().then(function(t){
+    t
+      .Transfer({_to:account},{fromBlock:one_month_ago})
+      .get(function(error, logs){
+        if (error) {
+          console.log('error', error)
+        }
+        let promised_logs = logs.map(l => {
+          return new Promise(function(fulfilled, rejected){
+            console.log('n', l);
+            web3.eth.getBlock(l.blockNumber, (error,block) =>{
+              console.log('l, block', l, block)
+              return fulfilled([l, block])
+            })
+          })
+        })
+        Promise.all(promised_logs).then((values) => {
+          logs = values.reverse().map(function(value){
+            var l = value[0]
+            var block = value[1]
+            return ({
+              value: l.args._value.toNumber(),
+              block: l.blockNumber,
+              from: l.args._from,
+              to: l.args._to,
+              timestamp: new Date(block.timestamp * 1000)
+            })
+          })
+          cb(logs)
+        });
+      });
+  })
+}
+
+function generateUrl(title, data){
+  url = 'https://image-charts.com/chart?chs=500x190';
+  url+= '&chd=t:' + data.join();
+  url+= '&chds=a&cht=lc&chtt=' + title;
+  return url
+}
+
+function getChart(account, cb){
+  getTransactionHistory(account, function(response){
+    getBalance(account).then(function(balance){
+      let data = getBalances(balance, account, response)
+      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__token__["a" /* default */])().then(function(t){
+        t.symbol.call((err, symbol)=>{
+          cb(symbol + ' balance for the last one month', data);
+        })
+      })
+    })
+  })
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (getChart);
+
+
+// getTransactionHistory = require('./lib/token').getTransactionHistory;
+// account = '';
+// getTransactionHistory(account, function(r){console.log(r)})
+
+
+/***/ }),
 /* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 const Web3 = __webpack_require__(23);
-__webpack_require__(36);
+__webpack_require__(100);
 const token_address = '0x4bda828f1fe628973c39366263b78b7cd9d6d8fe'; // sgt
 const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
-const abi = __webpack_require__(28);
+const abi = __webpack_require__(29);
 
 let web3,
     provider,
@@ -8221,7 +8316,7 @@ function web3Promise(){
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Web3 = __webpack_require__(80);
+var Web3 = __webpack_require__(79);
 
 // dont override global variable
 if (typeof window !== 'undefined' && typeof window.Web3 === 'undefined') {
@@ -8259,15 +8354,15 @@ module.exports = Web3;
 
 var f = __webpack_require__(3);
 
-var SolidityTypeAddress = __webpack_require__(69);
-var SolidityTypeBool = __webpack_require__(70);
-var SolidityTypeInt = __webpack_require__(73);
-var SolidityTypeUInt = __webpack_require__(76);
-var SolidityTypeDynamicBytes = __webpack_require__(72);
-var SolidityTypeString = __webpack_require__(75);
-var SolidityTypeReal = __webpack_require__(74);
-var SolidityTypeUReal = __webpack_require__(77);
-var SolidityTypeBytes = __webpack_require__(71);
+var SolidityTypeAddress = __webpack_require__(68);
+var SolidityTypeBool = __webpack_require__(69);
+var SolidityTypeInt = __webpack_require__(72);
+var SolidityTypeUInt = __webpack_require__(75);
+var SolidityTypeDynamicBytes = __webpack_require__(71);
+var SolidityTypeString = __webpack_require__(74);
+var SolidityTypeReal = __webpack_require__(73);
+var SolidityTypeUReal = __webpack_require__(76);
+var SolidityTypeBytes = __webpack_require__(70);
 
 var isDynamic = function (solidityType, type) {
    return solidityType.isDynamicType(type) ||
@@ -8502,6 +8597,28 @@ module.exports = coder;
 
 /***/ }),
 /* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export token */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__web3_promise__ = __webpack_require__(20);
+
+const token_address = '0x4bda828f1fe628973c39366263b78b7cd9d6d8fe';
+const abi = __webpack_require__(29);
+
+function token() {
+  return new Promise(function(resolve, reject){
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__web3_promise__["a" /* default */])().then(function(promise){
+      resolve(promise.web3.eth.contract(abi).at(token_address));
+    })
+  })
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (token);
+
+
+/***/ }),
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -8705,13 +8822,13 @@ module.exports = coder;
 }));
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(15));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(14));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -9033,13 +9150,13 @@ module.exports = coder;
 }));
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(15));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(14));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -9361,7 +9478,7 @@ module.exports = coder;
 }));
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = [
@@ -9639,7 +9756,7 @@ module.exports = [
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -9797,7 +9914,7 @@ module.exports = SolidityParam;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -9826,8 +9943,8 @@ var utils = __webpack_require__(2);
 var coder = __webpack_require__(24);
 var formatters = __webpack_require__(5);
 var sha3 = __webpack_require__(13);
-var Filter = __webpack_require__(17);
-var watches = __webpack_require__(19);
+var Filter = __webpack_require__(16);
+var watches = __webpack_require__(18);
 
 /**
  * This prototype should be used to create event filters
@@ -10011,7 +10128,7 @@ module.exports = SolidityEvent;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports) {
 
 /*
@@ -10102,7 +10219,7 @@ module.exports = Jsonrpc;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10116,16 +10233,17 @@ const web3Util = new __WEBPACK_IMPORTED_MODULE_1_web3___default.a();
 
 var apiKey = 'AN9EQIRIU7JUFQSKN25J2V37NMMB4DIMVI';
 
-var jQuery = __webpack_require__(61);
-const Mustache = __webpack_require__(62);
+var jQuery = __webpack_require__(60);
+const Mustache = __webpack_require__(61);
 
-var generateUrl = __webpack_require__(14).generateUrl;
-var getBalances = __webpack_require__(14).getBalances;
+var generateUrl = __webpack_require__(19).generateUrl;
+var getBalances = __webpack_require__(19).getBalances;
 
 function getBalance(address){
   return new Promise(function(resolve,reject){
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__web3_promise__["a" /* default */])().then(function(promise){
-      return promise.web3.eth.getBalance(function(error, result) {
+      console.log('makoto')
+      return promise.web3.eth.getBalance(address, function(error, result) {
         resolve(result)
       })
     })
@@ -10171,130 +10289,12 @@ function getChart(account, cb){
 
 
 /***/ }),
-/* 33 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBalances", function() { return getBalances; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTransactionHistory", function() { return getTransactionHistory; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateUrl", function() { return generateUrl; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__web3_promise__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__token__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_web3__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_web3___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_web3__);
-
-
-
-const web3Util = new __WEBPACK_IMPORTED_MODULE_2_web3___default.a();
-
-const one_month_ago = 874999
-
-function getBalance(address){
-  return new Promise(function(resolve,reject){
-    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__token__["default"])().then(function(t){
-      return t.balanceOf.call(address, function(err, result){
-        return resolve(result)
-      })
-    })
-  });
-}
-
-function getBalances(balance, account, array){
-  let initial_balance = balance;
-  let result = array.map(function(a){
-    var obj = {
-      balance:balance,
-      value: a.value,
-      from: a.from,
-      to: a.to,
-      timestamp: a.timestamp,
-      block:a.block
-    }
-    if (account == obj.to) {
-      balance-= a.value;
-    }else{
-      balance+= a.value;
-    }
-    return obj;
-  })
-  result.unshift({
-    balance:initial_balance,
-    timestamp: new Date()
-  })
-  return result;
-}
-
-function getTransactionHistory(account, cb){
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__token__["default"])().then(function(t){
-    t
-      .Transfer({_to:account},{fromBlock:one_month_ago})
-      .get(function(error, logs){
-        if (error) {
-          console.log('error', error)
-        }
-        let promised_logs = logs.map(l => {
-          return new Promise(function(fulfilled, rejected){
-            console.log('n', l);
-            web3.eth.getBlock(l.blockNumber, (error,block) =>{
-              console.log('l, block', l, block)
-              return fulfilled([l, block])
-            })
-          })
-        })
-        Promise.all(promised_logs).then((values) => {
-          logs = values.reverse().map(function(value){
-            var l = value[0]
-            var block = value[1]
-            return ({
-              value: l.args._value.toNumber(),
-              block: l.blockNumber,
-              from: l.args._from,
-              to: l.args._to,
-              timestamp: new Date(block.timestamp * 1000)
-            })
-          })
-          cb(logs)
-        });
-      });
-  })
-}
-
-function generateUrl(title, data){
-  url = 'https://image-charts.com/chart?chs=500x190';
-  url+= '&chd=t:' + data.join();
-  url+= '&chds=a&cht=lc&chtt=' + title;
-  return url
-}
-
-function getChart(account, cb){
-  getTransactionHistory(account, function(response){
-    getBalance(account).then(function(balance){
-      let data = getBalances(balance, account, response)
-      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__token__["default"])().then(function(t){
-        t.symbol.call((err, symbol)=>{
-          cb(symbol + ' balance for the last one month', data);
-        })
-      })
-    })
-  })
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (getChart);
-
-
-// getTransactionHistory = require('./lib/token').getTransactionHistory;
-// account = '';
-// getTransactionHistory(account, function(r){console.log(r)})
-
-
-/***/ }),
 /* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__token__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__token__ = __webpack_require__(25);
 
 const one_month_ago = 874999;
 
@@ -10327,13 +10327,15 @@ function aggregate(data){
 
 function getAllEvents(cb){
   console.log('one_month_ago', one_month_ago)
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__token__["default"])().then(function(t){
-    let tokenEvent = t.Transfer({},{fromBlock:one_month_ago})
-    tokenEvent.get(function(error, logs){
-      console.log('error', error)
-      console.log('aaa', logs)
-      cb(aggregate(logs));
-    });
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__token__["a" /* default */])().then(function(t){
+    t.Transfer({},{fromBlock:one_month_ago})
+      .then(function(res){
+        res.get(function(error, logs){
+          console.log('error', error)
+          console.log('aaa', logs)
+          cb(aggregate(logs));
+        });
+      })
   })
 }
 
@@ -10376,8 +10378,8 @@ function getTokenRanking(limit, account, cb){
 
 "use strict";
 
-var strictUriEncode = __webpack_require__(64);
-var objectAssign = __webpack_require__(63);
+var strictUriEncode = __webpack_require__(63);
+var objectAssign = __webpack_require__(62);
 
 function encoderForArrayFormat(opts) {
 	switch (opts.arrayFormat) {
@@ -10584,449 +10586,10 @@ exports.stringify = function (obj, opts) {
 
 /***/ }),
 /* 36 */
-/***/ (function(module, exports) {
-
-(function(self) {
-  'use strict';
-
-  if (self.fetch) {
-    return
-  }
-
-  var support = {
-    searchParams: 'URLSearchParams' in self,
-    iterable: 'Symbol' in self && 'iterator' in Symbol,
-    blob: 'FileReader' in self && 'Blob' in self && (function() {
-      try {
-        new Blob()
-        return true
-      } catch(e) {
-        return false
-      }
-    })(),
-    formData: 'FormData' in self,
-    arrayBuffer: 'ArrayBuffer' in self
-  }
-
-  function normalizeName(name) {
-    if (typeof name !== 'string') {
-      name = String(name)
-    }
-    if (/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name)) {
-      throw new TypeError('Invalid character in header field name')
-    }
-    return name.toLowerCase()
-  }
-
-  function normalizeValue(value) {
-    if (typeof value !== 'string') {
-      value = String(value)
-    }
-    return value
-  }
-
-  // Build a destructive iterator for the value list
-  function iteratorFor(items) {
-    var iterator = {
-      next: function() {
-        var value = items.shift()
-        return {done: value === undefined, value: value}
-      }
-    }
-
-    if (support.iterable) {
-      iterator[Symbol.iterator] = function() {
-        return iterator
-      }
-    }
-
-    return iterator
-  }
-
-  function Headers(headers) {
-    this.map = {}
-
-    if (headers instanceof Headers) {
-      headers.forEach(function(value, name) {
-        this.append(name, value)
-      }, this)
-
-    } else if (headers) {
-      Object.getOwnPropertyNames(headers).forEach(function(name) {
-        this.append(name, headers[name])
-      }, this)
-    }
-  }
-
-  Headers.prototype.append = function(name, value) {
-    name = normalizeName(name)
-    value = normalizeValue(value)
-    var list = this.map[name]
-    if (!list) {
-      list = []
-      this.map[name] = list
-    }
-    list.push(value)
-  }
-
-  Headers.prototype['delete'] = function(name) {
-    delete this.map[normalizeName(name)]
-  }
-
-  Headers.prototype.get = function(name) {
-    var values = this.map[normalizeName(name)]
-    return values ? values[0] : null
-  }
-
-  Headers.prototype.getAll = function(name) {
-    return this.map[normalizeName(name)] || []
-  }
-
-  Headers.prototype.has = function(name) {
-    return this.map.hasOwnProperty(normalizeName(name))
-  }
-
-  Headers.prototype.set = function(name, value) {
-    this.map[normalizeName(name)] = [normalizeValue(value)]
-  }
-
-  Headers.prototype.forEach = function(callback, thisArg) {
-    Object.getOwnPropertyNames(this.map).forEach(function(name) {
-      this.map[name].forEach(function(value) {
-        callback.call(thisArg, value, name, this)
-      }, this)
-    }, this)
-  }
-
-  Headers.prototype.keys = function() {
-    var items = []
-    this.forEach(function(value, name) { items.push(name) })
-    return iteratorFor(items)
-  }
-
-  Headers.prototype.values = function() {
-    var items = []
-    this.forEach(function(value) { items.push(value) })
-    return iteratorFor(items)
-  }
-
-  Headers.prototype.entries = function() {
-    var items = []
-    this.forEach(function(value, name) { items.push([name, value]) })
-    return iteratorFor(items)
-  }
-
-  if (support.iterable) {
-    Headers.prototype[Symbol.iterator] = Headers.prototype.entries
-  }
-
-  function consumed(body) {
-    if (body.bodyUsed) {
-      return Promise.reject(new TypeError('Already read'))
-    }
-    body.bodyUsed = true
-  }
-
-  function fileReaderReady(reader) {
-    return new Promise(function(resolve, reject) {
-      reader.onload = function() {
-        resolve(reader.result)
-      }
-      reader.onerror = function() {
-        reject(reader.error)
-      }
-    })
-  }
-
-  function readBlobAsArrayBuffer(blob) {
-    var reader = new FileReader()
-    reader.readAsArrayBuffer(blob)
-    return fileReaderReady(reader)
-  }
-
-  function readBlobAsText(blob) {
-    var reader = new FileReader()
-    reader.readAsText(blob)
-    return fileReaderReady(reader)
-  }
-
-  function Body() {
-    this.bodyUsed = false
-
-    this._initBody = function(body) {
-      this._bodyInit = body
-      if (typeof body === 'string') {
-        this._bodyText = body
-      } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
-        this._bodyBlob = body
-      } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
-        this._bodyFormData = body
-      } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
-        this._bodyText = body.toString()
-      } else if (!body) {
-        this._bodyText = ''
-      } else if (support.arrayBuffer && ArrayBuffer.prototype.isPrototypeOf(body)) {
-        // Only support ArrayBuffers for POST method.
-        // Receiving ArrayBuffers happens via Blobs, instead.
-      } else {
-        throw new Error('unsupported BodyInit type')
-      }
-
-      if (!this.headers.get('content-type')) {
-        if (typeof body === 'string') {
-          this.headers.set('content-type', 'text/plain;charset=UTF-8')
-        } else if (this._bodyBlob && this._bodyBlob.type) {
-          this.headers.set('content-type', this._bodyBlob.type)
-        } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
-          this.headers.set('content-type', 'application/x-www-form-urlencoded;charset=UTF-8')
-        }
-      }
-    }
-
-    if (support.blob) {
-      this.blob = function() {
-        var rejected = consumed(this)
-        if (rejected) {
-          return rejected
-        }
-
-        if (this._bodyBlob) {
-          return Promise.resolve(this._bodyBlob)
-        } else if (this._bodyFormData) {
-          throw new Error('could not read FormData body as blob')
-        } else {
-          return Promise.resolve(new Blob([this._bodyText]))
-        }
-      }
-
-      this.arrayBuffer = function() {
-        return this.blob().then(readBlobAsArrayBuffer)
-      }
-
-      this.text = function() {
-        var rejected = consumed(this)
-        if (rejected) {
-          return rejected
-        }
-
-        if (this._bodyBlob) {
-          return readBlobAsText(this._bodyBlob)
-        } else if (this._bodyFormData) {
-          throw new Error('could not read FormData body as text')
-        } else {
-          return Promise.resolve(this._bodyText)
-        }
-      }
-    } else {
-      this.text = function() {
-        var rejected = consumed(this)
-        return rejected ? rejected : Promise.resolve(this._bodyText)
-      }
-    }
-
-    if (support.formData) {
-      this.formData = function() {
-        return this.text().then(decode)
-      }
-    }
-
-    this.json = function() {
-      return this.text().then(JSON.parse)
-    }
-
-    return this
-  }
-
-  // HTTP methods whose capitalization should be normalized
-  var methods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'POST', 'PUT']
-
-  function normalizeMethod(method) {
-    var upcased = method.toUpperCase()
-    return (methods.indexOf(upcased) > -1) ? upcased : method
-  }
-
-  function Request(input, options) {
-    options = options || {}
-    var body = options.body
-    if (Request.prototype.isPrototypeOf(input)) {
-      if (input.bodyUsed) {
-        throw new TypeError('Already read')
-      }
-      this.url = input.url
-      this.credentials = input.credentials
-      if (!options.headers) {
-        this.headers = new Headers(input.headers)
-      }
-      this.method = input.method
-      this.mode = input.mode
-      if (!body) {
-        body = input._bodyInit
-        input.bodyUsed = true
-      }
-    } else {
-      this.url = input
-    }
-
-    this.credentials = options.credentials || this.credentials || 'omit'
-    if (options.headers || !this.headers) {
-      this.headers = new Headers(options.headers)
-    }
-    this.method = normalizeMethod(options.method || this.method || 'GET')
-    this.mode = options.mode || this.mode || null
-    this.referrer = null
-
-    if ((this.method === 'GET' || this.method === 'HEAD') && body) {
-      throw new TypeError('Body not allowed for GET or HEAD requests')
-    }
-    this._initBody(body)
-  }
-
-  Request.prototype.clone = function() {
-    return new Request(this)
-  }
-
-  function decode(body) {
-    var form = new FormData()
-    body.trim().split('&').forEach(function(bytes) {
-      if (bytes) {
-        var split = bytes.split('=')
-        var name = split.shift().replace(/\+/g, ' ')
-        var value = split.join('=').replace(/\+/g, ' ')
-        form.append(decodeURIComponent(name), decodeURIComponent(value))
-      }
-    })
-    return form
-  }
-
-  function headers(xhr) {
-    var head = new Headers()
-    var pairs = (xhr.getAllResponseHeaders() || '').trim().split('\n')
-    pairs.forEach(function(header) {
-      var split = header.trim().split(':')
-      var key = split.shift().trim()
-      var value = split.join(':').trim()
-      head.append(key, value)
-    })
-    return head
-  }
-
-  Body.call(Request.prototype)
-
-  function Response(bodyInit, options) {
-    if (!options) {
-      options = {}
-    }
-
-    this.type = 'default'
-    this.status = options.status
-    this.ok = this.status >= 200 && this.status < 300
-    this.statusText = options.statusText
-    this.headers = options.headers instanceof Headers ? options.headers : new Headers(options.headers)
-    this.url = options.url || ''
-    this._initBody(bodyInit)
-  }
-
-  Body.call(Response.prototype)
-
-  Response.prototype.clone = function() {
-    return new Response(this._bodyInit, {
-      status: this.status,
-      statusText: this.statusText,
-      headers: new Headers(this.headers),
-      url: this.url
-    })
-  }
-
-  Response.error = function() {
-    var response = new Response(null, {status: 0, statusText: ''})
-    response.type = 'error'
-    return response
-  }
-
-  var redirectStatuses = [301, 302, 303, 307, 308]
-
-  Response.redirect = function(url, status) {
-    if (redirectStatuses.indexOf(status) === -1) {
-      throw new RangeError('Invalid status code')
-    }
-
-    return new Response(null, {status: status, headers: {location: url}})
-  }
-
-  self.Headers = Headers
-  self.Request = Request
-  self.Response = Response
-
-  self.fetch = function(input, init) {
-    return new Promise(function(resolve, reject) {
-      var request
-      if (Request.prototype.isPrototypeOf(input) && !init) {
-        request = input
-      } else {
-        request = new Request(input, init)
-      }
-
-      var xhr = new XMLHttpRequest()
-
-      function responseURL() {
-        if ('responseURL' in xhr) {
-          return xhr.responseURL
-        }
-
-        // Avoid security warnings on getResponseHeader when not allowed by CORS
-        if (/^X-Request-URL:/m.test(xhr.getAllResponseHeaders())) {
-          return xhr.getResponseHeader('X-Request-URL')
-        }
-
-        return
-      }
-
-      xhr.onload = function() {
-        var options = {
-          status: xhr.status,
-          statusText: xhr.statusText,
-          headers: headers(xhr),
-          url: responseURL()
-        }
-        var body = 'response' in xhr ? xhr.response : xhr.responseText
-        resolve(new Response(body, options))
-      }
-
-      xhr.onerror = function() {
-        reject(new TypeError('Network request failed'))
-      }
-
-      xhr.ontimeout = function() {
-        reject(new TypeError('Network request failed'))
-      }
-
-      xhr.open(request.method, request.url, true)
-
-      if (request.credentials === 'include') {
-        xhr.withCredentials = true
-      }
-
-      if ('responseType' in xhr && support.blob) {
-        xhr.responseType = 'blob'
-      }
-
-      request.headers.forEach(function(value, name) {
-        xhr.setRequestHeader(name, value)
-      })
-
-      xhr.send(typeof request._bodyInit === 'undefined' ? null : request._bodyInit)
-    })
-  }
-  self.fetch.polyfill = true
-})(typeof self !== 'undefined' ? self : this);
-
-
-/***/ }),
-/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const getTokenChart = __webpack_require__(33).default;
-const getEthChart = __webpack_require__(32).default;
+const getTokenChart = __webpack_require__(19).default;
+const getEthChart = __webpack_require__(33).default;
 const getTokenRanking = __webpack_require__(34).default;
 window.getTokenRanking = getTokenRanking;
 window.getTokenChart = getTokenChart;
@@ -11038,7 +10601,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -11275,7 +10838,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -11429,7 +10992,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -11500,13 +11063,13 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(15), __webpack_require__(42), __webpack_require__(39), __webpack_require__(7), __webpack_require__(9), __webpack_require__(22), __webpack_require__(25), __webpack_require__(58), __webpack_require__(27), __webpack_require__(59), __webpack_require__(26), __webpack_require__(57), __webpack_require__(21), __webpack_require__(53), __webpack_require__(8), __webpack_require__(1), __webpack_require__(43), __webpack_require__(45), __webpack_require__(44), __webpack_require__(47), __webpack_require__(46), __webpack_require__(48), __webpack_require__(49), __webpack_require__(50), __webpack_require__(52), __webpack_require__(51), __webpack_require__(40), __webpack_require__(38), __webpack_require__(60), __webpack_require__(56), __webpack_require__(55), __webpack_require__(54));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(14), __webpack_require__(41), __webpack_require__(38), __webpack_require__(7), __webpack_require__(9), __webpack_require__(22), __webpack_require__(26), __webpack_require__(57), __webpack_require__(28), __webpack_require__(58), __webpack_require__(27), __webpack_require__(56), __webpack_require__(21), __webpack_require__(52), __webpack_require__(8), __webpack_require__(1), __webpack_require__(42), __webpack_require__(44), __webpack_require__(43), __webpack_require__(46), __webpack_require__(45), __webpack_require__(47), __webpack_require__(48), __webpack_require__(49), __webpack_require__(51), __webpack_require__(50), __webpack_require__(39), __webpack_require__(37), __webpack_require__(59), __webpack_require__(55), __webpack_require__(54), __webpack_require__(53));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -11523,7 +11086,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -11604,7 +11167,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -11687,7 +11250,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -11808,7 +11371,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -11871,7 +11434,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -11916,7 +11479,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -11975,7 +11538,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -12029,7 +11592,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -12078,7 +11641,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -12123,7 +11686,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -12158,7 +11721,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -12208,7 +11771,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -12358,7 +11921,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -12553,7 +12116,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -12750,7 +12313,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -12894,7 +12457,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -13166,13 +12729,13 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(25));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(26));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -13251,13 +12814,13 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(15), __webpack_require__(27));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(14), __webpack_require__(28));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -13339,7 +12902,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -14114,7 +13677,7 @@ const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
 }));
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -24374,7 +23937,7 @@ return jQuery;
 
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -25013,7 +24576,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25110,7 +24673,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25123,7 +24686,7 @@ module.exports = function (str) {
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/utf8js v2.1.2 by @mathias */
@@ -25370,10 +24933,10 @@ module.exports = function (str) {
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(100)(module), __webpack_require__(99)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(99)(module), __webpack_require__(98)))
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports) {
 
 module.exports = [
@@ -25632,7 +25195,7 @@ module.exports = [
 ];
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports) {
 
 module.exports = [
@@ -25745,7 +25308,7 @@ module.exports = [
 ];
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports) {
 
 module.exports = [
@@ -25897,7 +25460,7 @@ module.exports = [
 ];
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(3);
@@ -25929,7 +25492,7 @@ module.exports = SolidityTypeAddress;
 
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(3);
@@ -25961,7 +25524,7 @@ module.exports = SolidityTypeBool;
 
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(3);
@@ -25996,7 +25559,7 @@ module.exports = SolidityTypeBytes;
 
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(3);
@@ -26022,7 +25585,7 @@ module.exports = SolidityTypeDynamicBytes;
 
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(3);
@@ -26060,7 +25623,7 @@ module.exports = SolidityTypeInt;
 
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(3);
@@ -26098,7 +25661,7 @@ module.exports = SolidityTypeReal;
 
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(3);
@@ -26124,7 +25687,7 @@ module.exports = SolidityTypeString;
 
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(3);
@@ -26162,7 +25725,7 @@ module.exports = SolidityTypeUInt;
 
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(3);
@@ -26200,7 +25763,7 @@ module.exports = SolidityTypeUReal;
 
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26216,7 +25779,7 @@ if (typeof XMLHttpRequest === 'undefined') {
 
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -26224,7 +25787,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -26254,23 +25817,23 @@ module.exports = {
  * @date 2014
  */
 
-var RequestManager = __webpack_require__(95);
-var Iban = __webpack_require__(18);
-var Eth = __webpack_require__(89);
-var DB = __webpack_require__(88);
-var Shh = __webpack_require__(92);
-var Net = __webpack_require__(90);
-var Personal = __webpack_require__(91);
-var Swarm = __webpack_require__(93);
-var Settings = __webpack_require__(96);
-var version = __webpack_require__(79);
+var RequestManager = __webpack_require__(94);
+var Iban = __webpack_require__(17);
+var Eth = __webpack_require__(88);
+var DB = __webpack_require__(87);
+var Shh = __webpack_require__(91);
+var Net = __webpack_require__(89);
+var Personal = __webpack_require__(90);
+var Swarm = __webpack_require__(92);
+var Settings = __webpack_require__(95);
+var version = __webpack_require__(78);
 var utils = __webpack_require__(2);
 var sha3 = __webpack_require__(13);
-var extend = __webpack_require__(84);
-var Batch = __webpack_require__(82);
+var extend = __webpack_require__(83);
+var Batch = __webpack_require__(81);
 var Property = __webpack_require__(11);
-var HttpProvider = __webpack_require__(86);
-var IpcProvider = __webpack_require__(87);
+var HttpProvider = __webpack_require__(85);
+var IpcProvider = __webpack_require__(86);
 var BigNumber = __webpack_require__(12);
 
 
@@ -26382,7 +25945,7 @@ module.exports = Web3;
 
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -26408,11 +25971,11 @@ module.exports = Web3;
  */
 
 var sha3 = __webpack_require__(13);
-var SolidityEvent = __webpack_require__(30);
+var SolidityEvent = __webpack_require__(31);
 var formatters = __webpack_require__(5);
 var utils = __webpack_require__(2);
-var Filter = __webpack_require__(17);
-var watches = __webpack_require__(19);
+var Filter = __webpack_require__(16);
+var watches = __webpack_require__(18);
 
 var AllSolidityEvents = function (requestManager, json, address) {
     this._requestManager = requestManager;
@@ -26476,7 +26039,7 @@ module.exports = AllSolidityEvents;
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -26501,7 +26064,7 @@ module.exports = AllSolidityEvents;
  * @date 2015
  */
 
-var Jsonrpc = __webpack_require__(31);
+var Jsonrpc = __webpack_require__(32);
 var errors = __webpack_require__(10);
 
 var Batch = function (web3) {
@@ -26548,7 +26111,7 @@ module.exports = Batch;
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -26575,9 +26138,9 @@ module.exports = Batch;
 
 var utils = __webpack_require__(2);
 var coder = __webpack_require__(24);
-var SolidityEvent = __webpack_require__(30);
-var SolidityFunction = __webpack_require__(85);
-var AllEvents = __webpack_require__(81);
+var SolidityEvent = __webpack_require__(31);
+var SolidityFunction = __webpack_require__(84);
+var AllEvents = __webpack_require__(80);
 
 /**
  * Should be called to encode constructor params
@@ -26864,7 +26427,7 @@ module.exports = ContractFactory;
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var formatters = __webpack_require__(5);
@@ -26918,7 +26481,7 @@ module.exports = extend;
 
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -27204,7 +26767,7 @@ module.exports = SolidityFunction;
 
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -27241,7 +26804,7 @@ if (typeof window !== 'undefined' && window.XMLHttpRequest) {
     XMLHttpRequest = window.XMLHttpRequest; // jshint ignore: line
 // node
 } else {
-    XMLHttpRequest = __webpack_require__(78).XMLHttpRequest; // jshint ignore: line
+    XMLHttpRequest = __webpack_require__(77).XMLHttpRequest; // jshint ignore: line
 }
 
 var XHR2 = __webpack_require__(101); // jshint ignore: line
@@ -27363,7 +26926,7 @@ module.exports = HttpProvider;
 
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27577,7 +27140,7 @@ module.exports = IpcProvider;
 
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -27649,7 +27212,7 @@ module.exports = DB;
 
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27682,14 +27245,14 @@ var formatters = __webpack_require__(5);
 var utils = __webpack_require__(2);
 var Method = __webpack_require__(6);
 var Property = __webpack_require__(11);
-var c = __webpack_require__(16);
-var Contract = __webpack_require__(83);
-var watches = __webpack_require__(19);
-var Filter = __webpack_require__(17);
-var IsSyncing = __webpack_require__(97);
-var namereg = __webpack_require__(94);
-var Iban = __webpack_require__(18);
-var transfer = __webpack_require__(98);
+var c = __webpack_require__(15);
+var Contract = __webpack_require__(82);
+var watches = __webpack_require__(18);
+var Filter = __webpack_require__(16);
+var IsSyncing = __webpack_require__(96);
+var namereg = __webpack_require__(93);
+var Iban = __webpack_require__(17);
+var transfer = __webpack_require__(97);
 
 var blockCall = function (args) {
     return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? "eth_getBlockByHash" : "eth_getBlockByNumber";
@@ -28010,7 +27573,7 @@ module.exports = Eth;
 
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -28068,7 +27631,7 @@ module.exports = Net;
 
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28190,7 +27753,7 @@ module.exports = Personal;
 
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -28217,8 +27780,8 @@ module.exports = Personal;
 
 var Method = __webpack_require__(6);
 var formatters = __webpack_require__(5);
-var Filter = __webpack_require__(17);
-var watches = __webpack_require__(19);
+var Filter = __webpack_require__(16);
+var watches = __webpack_require__(18);
 
 var Shh = function (web3) {
     this._requestManager = web3._requestManager;
@@ -28282,7 +27845,7 @@ module.exports = Shh;
 
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28434,7 +27997,7 @@ module.exports = Swarm;
 
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -28459,8 +28022,8 @@ module.exports = Swarm;
  * @date 2015
  */
 
-var globalRegistrarAbi = __webpack_require__(66);
-var icapRegistrarAbi= __webpack_require__(67);
+var globalRegistrarAbi = __webpack_require__(65);
+var icapRegistrarAbi= __webpack_require__(66);
 
 var globalNameregAddress = '0xc6d9d2cd449a754c494264e1809c50e34d64562b';
 var icapNameregAddress = '0xa1a111bc074c9cfa781f0c38e63bd51c91b8af00';
@@ -28479,7 +28042,7 @@ module.exports = {
 
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -28508,9 +28071,9 @@ module.exports = {
  * @date 2014
  */
 
-var Jsonrpc = __webpack_require__(31);
+var Jsonrpc = __webpack_require__(32);
 var utils = __webpack_require__(2);
-var c = __webpack_require__(16);
+var c = __webpack_require__(15);
 var errors = __webpack_require__(10);
 
 /**
@@ -28750,7 +28313,7 @@ module.exports = RequestManager;
 
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports) {
 
 
@@ -28765,7 +28328,7 @@ module.exports = Settings;
 
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -28864,7 +28427,7 @@ module.exports = IsSyncing;
 
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -28889,8 +28452,8 @@ module.exports = IsSyncing;
  * @date 2015
  */
 
-var Iban = __webpack_require__(18);
-var exchangeAbi = __webpack_require__(68);
+var Iban = __webpack_require__(17);
+var exchangeAbi = __webpack_require__(67);
 
 /**
  * Should be used to make Iban transfer
@@ -28962,7 +28525,7 @@ module.exports = transfer;
 
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports) {
 
 var g;
@@ -28989,7 +28552,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -29014,6 +28577,473 @@ module.exports = function(module) {
 	}
 	return module;
 };
+
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports) {
+
+(function(self) {
+  'use strict';
+
+  if (self.fetch) {
+    return
+  }
+
+  var support = {
+    searchParams: 'URLSearchParams' in self,
+    iterable: 'Symbol' in self && 'iterator' in Symbol,
+    blob: 'FileReader' in self && 'Blob' in self && (function() {
+      try {
+        new Blob()
+        return true
+      } catch(e) {
+        return false
+      }
+    })(),
+    formData: 'FormData' in self,
+    arrayBuffer: 'ArrayBuffer' in self
+  }
+
+  if (support.arrayBuffer) {
+    var viewClasses = [
+      '[object Int8Array]',
+      '[object Uint8Array]',
+      '[object Uint8ClampedArray]',
+      '[object Int16Array]',
+      '[object Uint16Array]',
+      '[object Int32Array]',
+      '[object Uint32Array]',
+      '[object Float32Array]',
+      '[object Float64Array]'
+    ]
+
+    var isDataView = function(obj) {
+      return obj && DataView.prototype.isPrototypeOf(obj)
+    }
+
+    var isArrayBufferView = ArrayBuffer.isView || function(obj) {
+      return obj && viewClasses.indexOf(Object.prototype.toString.call(obj)) > -1
+    }
+  }
+
+  function normalizeName(name) {
+    if (typeof name !== 'string') {
+      name = String(name)
+    }
+    if (/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name)) {
+      throw new TypeError('Invalid character in header field name')
+    }
+    return name.toLowerCase()
+  }
+
+  function normalizeValue(value) {
+    if (typeof value !== 'string') {
+      value = String(value)
+    }
+    return value
+  }
+
+  // Build a destructive iterator for the value list
+  function iteratorFor(items) {
+    var iterator = {
+      next: function() {
+        var value = items.shift()
+        return {done: value === undefined, value: value}
+      }
+    }
+
+    if (support.iterable) {
+      iterator[Symbol.iterator] = function() {
+        return iterator
+      }
+    }
+
+    return iterator
+  }
+
+  function Headers(headers) {
+    this.map = {}
+
+    if (headers instanceof Headers) {
+      headers.forEach(function(value, name) {
+        this.append(name, value)
+      }, this)
+    } else if (Array.isArray(headers)) {
+      headers.forEach(function(header) {
+        this.append(header[0], header[1])
+      }, this)
+    } else if (headers) {
+      Object.getOwnPropertyNames(headers).forEach(function(name) {
+        this.append(name, headers[name])
+      }, this)
+    }
+  }
+
+  Headers.prototype.append = function(name, value) {
+    name = normalizeName(name)
+    value = normalizeValue(value)
+    var oldValue = this.map[name]
+    this.map[name] = oldValue ? oldValue+','+value : value
+  }
+
+  Headers.prototype['delete'] = function(name) {
+    delete this.map[normalizeName(name)]
+  }
+
+  Headers.prototype.get = function(name) {
+    name = normalizeName(name)
+    return this.has(name) ? this.map[name] : null
+  }
+
+  Headers.prototype.has = function(name) {
+    return this.map.hasOwnProperty(normalizeName(name))
+  }
+
+  Headers.prototype.set = function(name, value) {
+    this.map[normalizeName(name)] = normalizeValue(value)
+  }
+
+  Headers.prototype.forEach = function(callback, thisArg) {
+    for (var name in this.map) {
+      if (this.map.hasOwnProperty(name)) {
+        callback.call(thisArg, this.map[name], name, this)
+      }
+    }
+  }
+
+  Headers.prototype.keys = function() {
+    var items = []
+    this.forEach(function(value, name) { items.push(name) })
+    return iteratorFor(items)
+  }
+
+  Headers.prototype.values = function() {
+    var items = []
+    this.forEach(function(value) { items.push(value) })
+    return iteratorFor(items)
+  }
+
+  Headers.prototype.entries = function() {
+    var items = []
+    this.forEach(function(value, name) { items.push([name, value]) })
+    return iteratorFor(items)
+  }
+
+  if (support.iterable) {
+    Headers.prototype[Symbol.iterator] = Headers.prototype.entries
+  }
+
+  function consumed(body) {
+    if (body.bodyUsed) {
+      return Promise.reject(new TypeError('Already read'))
+    }
+    body.bodyUsed = true
+  }
+
+  function fileReaderReady(reader) {
+    return new Promise(function(resolve, reject) {
+      reader.onload = function() {
+        resolve(reader.result)
+      }
+      reader.onerror = function() {
+        reject(reader.error)
+      }
+    })
+  }
+
+  function readBlobAsArrayBuffer(blob) {
+    var reader = new FileReader()
+    var promise = fileReaderReady(reader)
+    reader.readAsArrayBuffer(blob)
+    return promise
+  }
+
+  function readBlobAsText(blob) {
+    var reader = new FileReader()
+    var promise = fileReaderReady(reader)
+    reader.readAsText(blob)
+    return promise
+  }
+
+  function readArrayBufferAsText(buf) {
+    var view = new Uint8Array(buf)
+    var chars = new Array(view.length)
+
+    for (var i = 0; i < view.length; i++) {
+      chars[i] = String.fromCharCode(view[i])
+    }
+    return chars.join('')
+  }
+
+  function bufferClone(buf) {
+    if (buf.slice) {
+      return buf.slice(0)
+    } else {
+      var view = new Uint8Array(buf.byteLength)
+      view.set(new Uint8Array(buf))
+      return view.buffer
+    }
+  }
+
+  function Body() {
+    this.bodyUsed = false
+
+    this._initBody = function(body) {
+      this._bodyInit = body
+      if (!body) {
+        this._bodyText = ''
+      } else if (typeof body === 'string') {
+        this._bodyText = body
+      } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
+        this._bodyBlob = body
+      } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
+        this._bodyFormData = body
+      } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+        this._bodyText = body.toString()
+      } else if (support.arrayBuffer && support.blob && isDataView(body)) {
+        this._bodyArrayBuffer = bufferClone(body.buffer)
+        // IE 10-11 can't handle a DataView body.
+        this._bodyInit = new Blob([this._bodyArrayBuffer])
+      } else if (support.arrayBuffer && (ArrayBuffer.prototype.isPrototypeOf(body) || isArrayBufferView(body))) {
+        this._bodyArrayBuffer = bufferClone(body)
+      } else {
+        throw new Error('unsupported BodyInit type')
+      }
+
+      if (!this.headers.get('content-type')) {
+        if (typeof body === 'string') {
+          this.headers.set('content-type', 'text/plain;charset=UTF-8')
+        } else if (this._bodyBlob && this._bodyBlob.type) {
+          this.headers.set('content-type', this._bodyBlob.type)
+        } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+          this.headers.set('content-type', 'application/x-www-form-urlencoded;charset=UTF-8')
+        }
+      }
+    }
+
+    if (support.blob) {
+      this.blob = function() {
+        var rejected = consumed(this)
+        if (rejected) {
+          return rejected
+        }
+
+        if (this._bodyBlob) {
+          return Promise.resolve(this._bodyBlob)
+        } else if (this._bodyArrayBuffer) {
+          return Promise.resolve(new Blob([this._bodyArrayBuffer]))
+        } else if (this._bodyFormData) {
+          throw new Error('could not read FormData body as blob')
+        } else {
+          return Promise.resolve(new Blob([this._bodyText]))
+        }
+      }
+
+      this.arrayBuffer = function() {
+        if (this._bodyArrayBuffer) {
+          return consumed(this) || Promise.resolve(this._bodyArrayBuffer)
+        } else {
+          return this.blob().then(readBlobAsArrayBuffer)
+        }
+      }
+    }
+
+    this.text = function() {
+      var rejected = consumed(this)
+      if (rejected) {
+        return rejected
+      }
+
+      if (this._bodyBlob) {
+        return readBlobAsText(this._bodyBlob)
+      } else if (this._bodyArrayBuffer) {
+        return Promise.resolve(readArrayBufferAsText(this._bodyArrayBuffer))
+      } else if (this._bodyFormData) {
+        throw new Error('could not read FormData body as text')
+      } else {
+        return Promise.resolve(this._bodyText)
+      }
+    }
+
+    if (support.formData) {
+      this.formData = function() {
+        return this.text().then(decode)
+      }
+    }
+
+    this.json = function() {
+      return this.text().then(JSON.parse)
+    }
+
+    return this
+  }
+
+  // HTTP methods whose capitalization should be normalized
+  var methods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'POST', 'PUT']
+
+  function normalizeMethod(method) {
+    var upcased = method.toUpperCase()
+    return (methods.indexOf(upcased) > -1) ? upcased : method
+  }
+
+  function Request(input, options) {
+    options = options || {}
+    var body = options.body
+
+    if (input instanceof Request) {
+      if (input.bodyUsed) {
+        throw new TypeError('Already read')
+      }
+      this.url = input.url
+      this.credentials = input.credentials
+      if (!options.headers) {
+        this.headers = new Headers(input.headers)
+      }
+      this.method = input.method
+      this.mode = input.mode
+      if (!body && input._bodyInit != null) {
+        body = input._bodyInit
+        input.bodyUsed = true
+      }
+    } else {
+      this.url = String(input)
+    }
+
+    this.credentials = options.credentials || this.credentials || 'omit'
+    if (options.headers || !this.headers) {
+      this.headers = new Headers(options.headers)
+    }
+    this.method = normalizeMethod(options.method || this.method || 'GET')
+    this.mode = options.mode || this.mode || null
+    this.referrer = null
+
+    if ((this.method === 'GET' || this.method === 'HEAD') && body) {
+      throw new TypeError('Body not allowed for GET or HEAD requests')
+    }
+    this._initBody(body)
+  }
+
+  Request.prototype.clone = function() {
+    return new Request(this, { body: this._bodyInit })
+  }
+
+  function decode(body) {
+    var form = new FormData()
+    body.trim().split('&').forEach(function(bytes) {
+      if (bytes) {
+        var split = bytes.split('=')
+        var name = split.shift().replace(/\+/g, ' ')
+        var value = split.join('=').replace(/\+/g, ' ')
+        form.append(decodeURIComponent(name), decodeURIComponent(value))
+      }
+    })
+    return form
+  }
+
+  function parseHeaders(rawHeaders) {
+    var headers = new Headers()
+    rawHeaders.split(/\r?\n/).forEach(function(line) {
+      var parts = line.split(':')
+      var key = parts.shift().trim()
+      if (key) {
+        var value = parts.join(':').trim()
+        headers.append(key, value)
+      }
+    })
+    return headers
+  }
+
+  Body.call(Request.prototype)
+
+  function Response(bodyInit, options) {
+    if (!options) {
+      options = {}
+    }
+
+    this.type = 'default'
+    this.status = 'status' in options ? options.status : 200
+    this.ok = this.status >= 200 && this.status < 300
+    this.statusText = 'statusText' in options ? options.statusText : 'OK'
+    this.headers = new Headers(options.headers)
+    this.url = options.url || ''
+    this._initBody(bodyInit)
+  }
+
+  Body.call(Response.prototype)
+
+  Response.prototype.clone = function() {
+    return new Response(this._bodyInit, {
+      status: this.status,
+      statusText: this.statusText,
+      headers: new Headers(this.headers),
+      url: this.url
+    })
+  }
+
+  Response.error = function() {
+    var response = new Response(null, {status: 0, statusText: ''})
+    response.type = 'error'
+    return response
+  }
+
+  var redirectStatuses = [301, 302, 303, 307, 308]
+
+  Response.redirect = function(url, status) {
+    if (redirectStatuses.indexOf(status) === -1) {
+      throw new RangeError('Invalid status code')
+    }
+
+    return new Response(null, {status: status, headers: {location: url}})
+  }
+
+  self.Headers = Headers
+  self.Request = Request
+  self.Response = Response
+
+  self.fetch = function(input, init) {
+    return new Promise(function(resolve, reject) {
+      var request = new Request(input, init)
+      var xhr = new XMLHttpRequest()
+
+      xhr.onload = function() {
+        var options = {
+          status: xhr.status,
+          statusText: xhr.statusText,
+          headers: parseHeaders(xhr.getAllResponseHeaders() || '')
+        }
+        options.url = 'responseURL' in xhr ? xhr.responseURL : options.headers.get('X-Request-URL')
+        var body = 'response' in xhr ? xhr.response : xhr.responseText
+        resolve(new Response(body, options))
+      }
+
+      xhr.onerror = function() {
+        reject(new TypeError('Network request failed'))
+      }
+
+      xhr.ontimeout = function() {
+        reject(new TypeError('Network request failed'))
+      }
+
+      xhr.open(request.method, request.url, true)
+
+      if (request.credentials === 'include') {
+        xhr.withCredentials = true
+      }
+
+      if ('responseType' in xhr && support.blob) {
+        xhr.responseType = 'blob'
+      }
+
+      request.headers.forEach(function(value, name) {
+        xhr.setRequestHeader(name, value)
+      })
+
+      xhr.send(typeof request._bodyInit === 'undefined' ? null : request._bodyInit)
+    })
+  }
+  self.fetch.polyfill = true
+})(typeof self !== 'undefined' ? self : this);
 
 
 /***/ }),

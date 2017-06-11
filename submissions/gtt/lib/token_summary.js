@@ -31,12 +31,12 @@ function aggregate(data){
 function getAllEvents(cb){
   console.log('one_month_ago', one_month_ago)
   token().then(function(t){
-    let tokenEvent = t.Transfer({},{fromBlock:one_month_ago})
-    tokenEvent.get(function(error, logs){
-      console.log('error', error)
-      console.log('aaa', logs)
-      cb(aggregate(logs));
-    });
+    t.Transfer({},{fromBlock:one_month_ago})
+     .get(function(error, logs){
+        console.log('error', error)
+        console.log('aaa', logs)
+        cb(aggregate(logs));
+      });
   })
 }
 

@@ -7,13 +7,14 @@ var apiKey = 'AN9EQIRIU7JUFQSKN25J2V37NMMB4DIMVI';
 var jQuery = require('jquery');
 const Mustache = require('mustache');
 
-var generateUrl = require('./token').generateUrl;
-var getBalances = require('./token').getBalances;
+var generateUrl = require('./token_detail').generateUrl;
+var getBalances = require('./token_detail').getBalances;
 
 function getBalance(address){
   return new Promise(function(resolve,reject){
     web3Promise().then(function(promise){
-      return promise.web3.eth.getBalance(function(error, result) {
+      console.log('makoto')
+      return promise.web3.eth.getBalance(address, function(error, result) {
         resolve(result)
       })
     })
