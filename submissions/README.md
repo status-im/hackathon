@@ -1,8 +1,4 @@
-
-# MyTytor / DTS (Decentralized Turoring System)
-
-
-Submission: [#35](https://github.com/status-im/hackathon/issues/35)
+# MyTytor / DTS (Decentralized Tutoring System)
 
 Settings:
 ```
@@ -25,11 +21,11 @@ Once the course is finished, the teacher can either release the payment to his a
 
 
 ## About me
-Software enginneer passionated into decentralisation and especially Ethereum. I tried to manage a few hours every nights to achieve this hackaton. It is a very strainghtforward use case but the aim was to illustrate how to disrupt and modernize a business case such as private tutoring.
+Software engineer passionate into decentralization and especially Ethereum. I tried to manage a few hours every nights to achieve this hackaton. It is a very straightforward use case but the aim was to illustrate how to disrupt and modernize a business case such as private tutoring.
 
 
 ## Technologies & Architecture 
-The dapp follows the following architrcture:
+The dapp follows the following architecture:
 <Diagram>
 
 The backend contains three main contracts:
@@ -57,7 +53,7 @@ The technologies and frameworks are JavaScript/Typescript, Ionic2 and Angular2
 
 
 ## Requirements
-The following tools has been use to developp this project:
+The following tools has been use to develop this project:
 
 **nodeJS**
 
@@ -143,7 +139,7 @@ This projecr is a prototype so obviously many things can be improved and impleme
 
 *Chatbot*
 - Use a chatbot to remind the next course 
-- Use a chatbot to propose interractives exercices/homeworks
+- Use a chatbot to propose interactive exercises/homework
 
 
 ## Feedback
@@ -164,6 +160,5 @@ I would like to see in this api:
 
 ### Status app
 Except a few instabilities sometimes, the app is clear and easy to use. 
-
 
 
