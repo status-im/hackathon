@@ -1,0 +1,154 @@
+{
+	"initalBalances":[
+		"0x100000000000000000000",
+		"0x100000000000000000000",
+		"0x100000000000000000000",
+		"0x100000000000000000000",
+		"0x100000000000000000000"
+		],
+	"steps":[
+		{
+		"account":"0",
+		"action" : "_deploy_"
+		},
+		{
+		"account":"1",
+		"action" : "create_game",
+		"params":{
+			"slotIndex" : 0,
+			"minSzabo" : 3000000,
+			"maxSzabo":6000000,
+			"numUnits":50,
+			"periodInMinutes" : 10,
+			"shadow":"_shadowAddress:1",
+			"allowance": "4000000000000000000"
+		},
+		"value":"10000000000000000000",
+		"shouldFail":false
+		},
+		{
+		"account":"2",
+		"action" : "start_game",
+		"params":{
+			"slotIndex":0, 
+			"otherSlot":"_slot:1:0",
+			"numUnits":50,
+			"periodInMinutes": 10, 
+			"shadow": "_shadowAddress:2",
+			"allowance":"4000000000000000000"
+		}, 
+		"value":"8000000000000000000"
+		},
+		{
+		"account":"_shadowAddress:2",
+		"action" : "move",
+		"params":{
+			"slot":"_slot:1:0", 
+			"hash":"_sha3:0xdddf100000000000000000000000000000000000000000000000000000000001:_account|2:0x04"
+		}
+		},
+		{
+		"account":"_shadowAddress:1",
+		"action" : "move_reveal",
+		"params":{
+			"slot":"_slot:1:0", 
+			"move":10
+		}
+		},
+		{
+		"account":"_shadowAddress:2",
+		"action" : "reveal_move",
+		"params":{
+			"slot": "_slot:1:0", 
+			"move": 4, 
+			"secret":"0xdddf100000000000000000000000000000000000000000000000000000000001", 
+			"hash":"_sha3:0xdddf100000000000000000000000000000000000000000000000000000000002:_account|2:0x0B"
+		}
+		},
+		{
+		"account":"_shadowAddress:1",
+		"action" : "move_reveal",
+		"params":{
+			"slot":"_slot:1:0", 
+			"move":10
+		}
+		},
+		{
+		"account":"_shadowAddress:2",
+		"action" : "reveal_move",
+		"params":{
+			"slot": "_slot:1:0", 
+			"move": 11, 
+			"secret":"0xdddf100000000000000000000000000000000000000000000000000000000002", 
+			"hash":"_sha3:0xdddf100000000000000000000000000000000000000000000000000000000003:_account|2:0x0C"
+		}
+		},
+		{
+		"account":"_shadowAddress:1",
+		"action" : "move_reveal",
+		"params":{
+			"slot":"_slot:1:0", 
+			"move":10
+		}
+		},
+		{
+		"account":"_shadowAddress:2",
+		"action" : "reveal_move",
+		"params":{
+			"slot": "_slot:1:0", 
+			"move": 12, 
+			"secret":"0xdddf100000000000000000000000000000000000000000000000000000000003", 
+			"hash":"_sha3:0xdddf100000000000000000000000000000000000000000000000000000000004:_account|2:0x0C"
+		}
+		},
+		{
+		"account":"_shadowAddress:1",
+		"action" : "move_reveal",
+		"params":{
+			"slot":"_slot:1:0", 
+			"move":10
+		}
+		},
+		{
+		"account":"_shadowAddress:2",
+		"action" : "reveal_move",
+		"params":{
+			"slot": "_slot:1:0", 
+			"move": 12, 
+			"secret":"0xdddf100000000000000000000000000000000000000000000000000000000004", 
+			"hash":"_sha3:0xdddf100000000000000000000000000000000000000000000000000000000005:_account|2:0x06"
+		}
+		},
+		{
+		"account":"_shadowAddress:1",
+		"action" : "move_reveal",
+		"params":{
+			"slot":"_slot:1:0", 
+			"move":5
+		}
+		},
+		{
+		"account":"_shadowAddress:2",
+		"action" : "reveal_move",
+		"params":{
+			"slot": "_slot:1:0", 
+			"move": 6, 
+			"secret":"0xdddf100000000000000000000000000000000000000000000000000000000005", 
+			"hash":"_sha3:0xdddf100000000000000000000000000000000000000000000000000000000006:_account|2:0x0B"
+		}
+		},
+		{
+		"account":"_shadowAddress:1",
+		"action" : "move_reveal",
+		"params":{
+			"slot":"_slot:1:0", 
+			"move":5
+		}
+		},
+		{
+		"action" : "_wait_",
+		"params":{"seconds":1500}
+		}
+		
+	]
+}
