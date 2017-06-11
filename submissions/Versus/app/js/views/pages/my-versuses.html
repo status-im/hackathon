@@ -1,0 +1,34 @@
+
+<div class="paybox-text"><div class="paybox-rules"><h1>
+    Created versuses
+</h1>
+<h3>Here you can see a list of your created versuses.<br><br>The amount of votes for every picture is shown below.
+</h3></div></div>
+
+<div>
+    <div class="panel panel-default ng-scope" ng-repeat="versus in ctrl.feed | orderBy: 'pairId'" >
+	<div class="panel-heading">
+	    <h3 class="panel-title">{{versus.title}} ({{ versus.pollMaxNumber}}) </h3>
+	</div>
+	
+	
+	
+	<div class="panel-body ng-binding">
+	    
+	    <div class="col-xs-6 col-no-padding">
+		<row><img class="versus-img" ng-src="{{versus.imageSrcA}}"</img></row>
+		<row><div class ="versus-rating"> {{ versus.imageRatingA}}</div></row>
+	    </div>
+	    <div class="col-xs-6  col-no-padding">
+		<row><img class="versus-img" ng-src="{{versus.imageSrcB}}"</img></row>
+		<row><div class ="versus-rating">{{ versus.imageRatingB}}</div></row>
+		
+	    </div>
+
+	</div>
+	
+    </div>
+    
+</div>	    
+
+

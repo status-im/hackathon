@@ -1,0 +1,72 @@
+
+<form name="addversus" role="form"  class="ng-pristine ng-valid ng-valid-email">
+    <fieldset>
+	<div class="paybox-text"><div class="paybox-rules">
+	    <h1>
+		Submit new versus
+	    </h1>
+	    <h3>1. Choose a title for your versus.<br><br>2. Submit pictures by pasting their links into the "A" and "B" fields (Image upload is not supported at the moment).<br><br>3. Choose how many people you want to participate in the versus poll (post fee depends on the amount of people: {{ctrl.feePerPerson}} Eth/person).<br><br>4. Press "Submit" to post your versus.
+	    </h3>
+	</div>
+	
+	<div class="form-group has-success has-feedback">
+	    <label>Title</label>
+	    <input type="text" ng-model="ctrl.title" class="form-control" placeholder="Versus title" ng-change="ctrl.checkForm()">
+	</div>
+	
+	<div class="row">
+	    <div class="col-xs-6">
+		<div class="form-group has-success has-feedback">
+		    
+		    <label>side A</label>
+		    <input type="text" ng-model="ctrl.imageSrcA" class="form-control form-no-padding" placeholder="side A image link" ng-change="ctrl.checkForm()">
+		    <img ng-src="{{ctrl.imageSrcA}}"> </img>
+		</div>
+	    </div>
+	    <div class="col-xs-6">
+		<div class="form-group has-success has-feedback">
+		    
+		    <label>side B</label>
+		    <input type="text" ng-model="ctrl.imageSrcB" class="form-control form-no-padding" placeholder="side A image link" ng-change="ctrl.checkForm()">
+		    <img ng-src="{{ctrl.imageSrcB}}"> </img>
+		</div>
+	    </div>
+	</div>
+	
+	<div class="row">
+	    <div class="col-xs-6">
+		<div class="form-group has-success has-feedback">	    
+		    <label>Amount of polls</label>
+		    <input type="number" class="form-control" name="input" ng-model="ctrl.peopleNum" ng-change="ctrl.onpeopleNumChange($value)"  min="10" required>
+		</div>
+	    </div>
+	    <div class="col-xs-6">
+		<div class="form-group has-success has-feedback">
+		  
+		    
+		    
+		    <label class="estimated-fee" style="">Estimated fee:<br><br></label>
+		    <div class="feecount" name="feecount"> {{ ctrl.fee}} &Xi;</div>
+
+		</div>
+	    </div>
+	    
+	    <div class="form-group has-success has-feedback">
+		
+	    </div>
+	</div>
+
+    </fieldset>
+    
+    <hr>
+    <div ng-show="ctrl.error" style="color: red;">
+	{{ ctrl.errorMsg}}
+    </div>
+
+    <button class="btn btn-primary btn-block add-submit-btn" ng-class="{disabled: ctrl.error}" ng-click="ctrl.submit()">
+	Submit
+    </button>
+
+
+
+</form>

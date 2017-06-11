@@ -1,0 +1,20 @@
+{
+  "name": "Versus",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "embark test"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "",
+  "devDependencies": {
+    "embark": "^2.4.2",
+    "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "embark-status": "^0.2.1",
+    "ng-file-upload": "^12.2.13",
+    "watchman": "^0.1.8"
+  }
+}

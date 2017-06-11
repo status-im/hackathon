@@ -1,0 +1,269 @@
+.versus-hover {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: none;
+    background: white;
+    font-size: 22px;
+    color: green;
+    text-align: center;
+    text-color: #000;
+    border-radius: 50%;
+    border: 3px solid #bbb;
+    padding: 5px;
+}
+
+.active img {
+    position: absolute;
+    }
+
+.unselected img {
+    filter: grayscale(100%);
+    }
+
+.unselected {
+    display: inline-grid;
+}
+
+.ng-scope {
+    padding-bottom: 0px !important;
+}
+
+.active .versus-hover {
+    display: block;
+}
+
+.col-no-padding {
+    padding: 2px;
+}
+
+.navbar-app {
+    background: #34495e;
+}
+
+.navbar-app .btn {
+    color: #ffffff;
+    padding-top: 10px;
+}
+
+.navbar-app .btn:hover{
+    color: #ffffff;
+}
+
+.navbar span {
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.versus-img {
+    width: 100%;
+    height: 150px;
+}
+
+.pull-right {
+    padding: 12px;
+    padding-right: 14px;
+}
+
+.numberCircle {
+    border-radius: 50%;
+
+    width: 36px;
+    height: 36px;
+
+    border: 3px solid #ffffff;
+    color: #fff;
+    text-align: center;
+
+    font: 26px Arial, sans-serif;
+}
+
+.btn-primary {
+    background-color: #ec7063;
+    border-color: #ec7063;
+ }
+
+.claim-btn {
+   height: 49px;
+}
+
+.submit-btn {
+    width: 49%;
+    display: inline-block;
+    height: 35px;
+}
+
+.dismiss-btn {
+    width: 49.5%;
+    display: inline-block;
+    height: 35px;
+}
+
+.add-submit-btn:hover, .add-submit-btn:active, .add-submit-btn:focus {
+    background-color: #ec7063 !important;
+    border-color: #ec7063 !important;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    background-color: #ec7063;
+    border-color: #ec7063;
+}
+
+.section {
+    padding: 20px 15px;
+}
+
+.background-photo {
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+}
+
+.background-blur {
+    height: 75px;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    background: #34495e;
+    opacity: .7;
+}
+
+.selected-image {
+    position: absolute;
+}
+
+.selected-filter {
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    background: #2e86c1;
+    opacity: .7;
+    display: none;
+}
+
+.active .selected-filter {
+    display: block;
+}
+
+.app-name {
+    height: 150px;
+    width: 100%;
+    position: absolute;
+    padding: 0px;
+    background: #34495e;
+}
+
+.image-cropper {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid beige;
+}
+
+.profile-photo {
+    margin-top: 15px;
+    height: 100%;
+    width: auto;
+    margin-left: 10px;
+    position: absolute;
+}
+
+.img-circle {
+    border-radius: 0;
+}
+
+.background-color {
+    background: white;
+}
+
+.list-group-item, a.list-group-item {
+    border-bottom: 0px;
+}
+
+
+.list-group-item.active, .list-group-item:focus, .list-group-item:hover {
+    z-index: 2;
+    color: #ec7063 !important;
+    background-color: #fff !important;
+    border-color: #fff;
+    text-decoration: none;
+}
+
+
+.title-text, .title-text:hover, .title-text:active, .title-text:focus {
+    font-size: 25px;
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    padding-top: 17px;
+    display: inline-block;
+						    }
+
+.main-title {
+    position: absolute;
+    margin-left: 20px;
+    font-size: 40px;
+}
+
+.fa-plus-circle {
+    color: white
+}
+
+.fa-check-circle {
+    font-size: 60px;
+    margin: 50px;
+    color: white;
+}
+
+.fa-bars {
+    padding-top: 10px;
+}
+
+.image-rating {
+    position: absolute;
+    font-size: 40px;
+    color: #ec7063;
+    margin-top: 50px;
+    margin-left: 55px;
+}
+
+.form-no-padding {
+    padding-right: 0px !important;
+}
+
+.paybox-text h3{
+    font-size: 16px;
+}
+
+.paybox-text h1 {
+    font-size: 22px
+}
+
+.paybox-rules {
+    border: 2px solid #34495e;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.feecount {
+    font-size: 25px;
+    margin-top: 25px;
+}
+
+.estimated-fee {
+    position: absolute;
+}
+
+.preview-img {
+    margin-top: 10px;
+}
+
+.versus-rating {
+    font-size: 25px;
+    margin-top: 25px;
+    margin-left: 70px;
+}

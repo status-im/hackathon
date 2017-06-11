@@ -1,0 +1,24 @@
+{
+  "contracts": ["app/contracts/**"],
+  "app": {
+      "css/app.css": ["app/css/lib/**", "app/css/custom.css"],
+      "js/app.js": [  "app/js/lib/angular.min.js", "app/js/lib/*", "app/js/scripts/app.js", "app/js/scripts/controllers/*","app/js/scripts/services/*" ],
+      "index.html": "app/index.html",
+      "js/views/pages/list.html": "app/js/views/pages/list.html",
+      "js/views/pages/new-versus.html": "app/js/views/pages/new-versus.html",
+      "js/views/pages/my-versuses.html": "app/js/views/pages/my-versuses.html",
+      "js/views/pages/about.html": "app/js/views/pages/about.html",
+      "js/views/pages/claim-payout-overlay.html": "app/js/views/pages/claim-payout-overlay.html",
+      "js/bots/bot.js": ["app/js/bots/lib/*", "app/js/bots/versus-service.js","app/js/bots/webview.js", "app/js/bots/style.js", "app/js/bots/feed.js", "app/js/bots/message-bot.js"]
+
+  },
+  "buildDir": "dist/",
+  "config": "config/",
+    "plugins": {
+	"embark-status": {
+	    "deviceIp": "192.168.0.67",
+	    "whisperIdentity": "versus-bot",
+	    "name": "VersusBot"
+	}
+    }
+}
