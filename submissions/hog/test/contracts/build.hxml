@@ -1,0 +1,17 @@
+-main HogTest
+-js hog_test.js
+-cp src
+-cp ../../Libraries/web3/src
+-cp ../../Libraries/bignumberjs/src
+-cp ../../Libraries/ethereumjs/src
+-cp ../../Sources
+
+
+-lib hxnodejs
+-lib cursive
+
+-D web3_allow_deploy=true
+-D web3_allow_privateKey=true
+
+-lib jstack
+-D debug

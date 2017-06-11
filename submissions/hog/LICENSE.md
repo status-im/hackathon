@@ -1,0 +1,1 @@
+/* Copyright (C) Etherplay <contact@etherplay.io> - All Rights Reserved */
