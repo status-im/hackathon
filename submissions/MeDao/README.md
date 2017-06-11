@@ -1,5 +1,10 @@
-# MeDao
+# DApp and bot for Status.im
 
-### TO DO
+Hackathon GitHub Issue: https://github.com/status-im/hackathon/issues/17
 
-- ReadMe
+```
+{
+    "name":             "#21 MeDao",
+    "dapp-url":         "http://medao.azurewebsites.net/#/home"
+}
+```
