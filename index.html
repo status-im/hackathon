@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>ETHCROW</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link rel="stylesheet" href="bower_components/framework7/dist/css/framework7.material.min.css">
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="bower_components/framework7/dist/css/framework7.material.colors.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="./app.css">
+  </head>
+  <body>
+    <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-fixed toolbar-fixed">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page">
+ 
+            <!-- Top Navbar. In Material theme it should be inside of the page-->
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="center">ETHCROW</div>
+              </div>
+            </div>
+ 
+            <!-- Toolbar. In Material theme it should be inside of the page-->
+            <div class="toolbar toolbar-bottom">
+              <div class="toolbar-inner">
+                <a href="/profile.html" class="link"><i class="material-icons">account_box</i></a>
+                <a href="#" class="link"><i class="material-icons">assignment</i></a>
+                <a href="/transactions.html" class="link"><i class="material-icons">receipt</i></a>
+                <a href="/new_contract.html" class="link"><i class="material-icons">add</i></a>
+                <a href="/arbiter.html" class="link"><i class="material-icons">account_balance</i></a>
+              </div>
+            </div>
+ 
+            <!-- Scrollable page content -->
+            <div class="page-content">
+				<div class="searchbar" onkeydown="search_contract(event)">
+			        <div class="searchbar-input" >
+			            <input id="search" type="search" placeholder="Search by Contract ID">
+			            <a href="#" class="searchbar-clear"></a>
+			        </div>
+			        <a href="#" class="searchbar-cancel">Cancel</a>
+			    </div>
+			     <li class="item-divider">Authored</li>
+				<div class="written list-block virtual-list">
+				  <!-- keep it empty -->
+				</div>
+				 <li class="item-divider">Participating</li>
+				<div class="read list-block virtual-list">
+				  <!-- keep it empty -->
+				</div>
+            </div>
+         
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="bower_components/framework7/dist/js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script src="bower_components/bignumber.js/bignumber.min.js"></script>
+	<script src="bower_components/web3/dist/web3.min.js"></script>
+	<script src="bower_components/blockies/blockies.min.js"></script>
+    <script src="eth.js"></script>	
+  </body>
+</html> 

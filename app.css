@@ -1,0 +1,60 @@
+.list-block{}
+.navbar-fixed .page>.searchbar, .navbar-fixed>.searchbar, .navbar-through .page>.searchbar, .navbar-through>.searchbar{top:0px}
+body > div > div > div > div > div.page-content > div{margin-top:0px;}
+
+#arbitrate{display:none}
+.avatar{float:left}
+.card-header{word-break:break-word;}
+#contract_info
+	{
+		background-image:url('https://superdevresources.com/wp-content/uploads/2014/08/12-paper-textures.jpg');
+		background-size: cover;
+	    background-position: center;
+	    word-wrap:break-word;
+    }
+#contract_header{background:lightblue}
+.dispute
+	{
+		display:none;
+		background-image:url('http://fc02.deviantart.net/fs71/f/2013/198/b/1/__f_o_g_____custom_box_background___by_cre8art4life-d6dv82f.png');
+	}
+.complete
+	{
+		background-image:url('https://superdevresources.com/wp-content/uploads/2014/08/12-paper-textures.jpg');
+	}
+#winner_text{    
+font-family: fantasy;
+    font-style: italic;
+    font-variant: small-caps;
+    font-weight: 300;
+    }
+.gold_star{
+	color:gold;
+	-webkit-transition:color 2s linear !important;
+	transition:color 2s linear !important;
+	}
+
+.material-icons{font-size:2em;}
+.pic_ruling{display:block;margin:auto;}
+.ruling
+	{
+		white-space:pre-line;
+		width:100%;
+	}
+.selected
+	{
+	    border: .5vw solid #468ddf;
+		border-radius: 100%;
+	}
+.unselected
+	{
+		border:.5vw solid red;
+		border-radius: 100%;
+	}
+.green{color:green}
+.red{color:red}
+.grey{color:lightgrey}
+a.red{color:red !important}
+a.blue{color:blue !important}
+a.green{color:green !important}
+
