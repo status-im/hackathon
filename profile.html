@@ -1,0 +1,56 @@
+<div data-page="profile" class="page">
+	<div class="toolbar toolbar-bottom">
+	  <div class="toolbar-inner">
+		<a href="#" class="link" onclick="display_me()"><i class="material-icons">account_box</i></a>
+		<a href="/" class="link"><i class="material-icons">assignment</i></a>
+		<a href="/transactions.html" class="link"><i class="material-icons">receipt</i></a>		
+		<a href="/new_contract.html" class="link"><i class="material-icons">add</i></a>
+		<a href="/arbiter" class="link"><i class="material-icons">account_balance</i></a>
+	  </div>
+	</div>	
+	<div class="page-content">
+			<div class="popup popup-update">
+		    	<div class="list-block">
+				  <ul>
+				    <li>
+				      <div class="item-content">
+				        <div class="item-inner">
+				          <div class="item-title label">Image URL</div>
+				          <div class="item-input">
+				             <input type='text' id="url"/>
+				          </div>
+				        </div>
+				      </div>
+				      </li>
+					   <li>
+						<div class="item-content">
+					        <div class="item-inner">
+					          <div class="item-title label">Profie</div>
+					          <div class="item-input">
+					             <textarea id="descr"></textarea>
+					          </div>
+					    </div>
+				      </div>	  
+					  </li>
+					 </ul>
+					 </div>
+					 <a href="#" class="button button-fill" onclick="save_profile()">Save Profile</a>
+					 <a href="#" class="button" onclick="close_pop()">Cancel</a>
+				</div>
+		 <p>Address <b id="address"></b></p>
+		 <p>Balance <b id="balance"></b> Ether</p>
+		  <div id="profile_card" class="card-content">
+		    <div class="card-content-inner">
+		      <img id="image" src="" width="100%">
+		      <p id="profile"></p>
+		    </div>
+			  <div class="card-footer">
+			    <a href="#" class="link">Exp <b id="exp"></b></a>
+			    <a href="#" class="link">Rating <b id="rating"></b>/5</a>
+			  </div>		    
+		  </div>
+		  <a href="#" id="update" class="button button-fill" onclick="pop()">Update Profile</a>
+
+	</div>
+</div>
+       

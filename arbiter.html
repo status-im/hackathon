@@ -1,0 +1,57 @@
+<div data-page="arbiter" class="page">
+	<div class="toolbar toolbar-bottom">
+	  <div class="toolbar-inner">
+		<a href="/profile.html" class="link"><i class="material-icons">account_box</i></a>
+		<a href="/" class="link"><i class="material-icons">assignment</i></a>
+		<a href="/new_contract.html" class="link"><i class="material-icons">add</i></a>
+		<a href="#" class="link"><i class="material-icons">account_balance</i></a>
+	  </div>
+	</div>	
+	   <div class="searchbar" onkeydown="search_arbiter(event)">
+        <div class="searchbar-input" >
+            <input id="search" type="search" placeholder="Search">
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+        <a href="#" class="searchbar-cancel">Cancel</a>
+    </div>
+	<div id="spage" class="page-content">
+		<div class="popup popup-update">
+		    	<div class="list-block">
+				  <ul>
+				    <li>
+				      <div class="item-content">
+				        <div class="item-inner">
+				          <div class="item-title label">Image URL</div>
+				          <div class="item-input">
+				             <input type='text' id="url"/>
+				          </div>
+				        </div>
+				      </div>
+				      </li>
+					   <li>
+						<div class="item-content">
+					        <div class="item-inner">
+					          <div class="item-title label">Specialty</div>
+					          <div class="item-input">
+					             <textarea id="industry"></textarea>
+					          </div>
+					    </div>
+				      </div>	  
+					  </li>
+				   <li>
+						<div class="item-content">
+					        <div class="item-inner">
+					          <div class="item-title label">Profile</div>
+					          <div class="item-input">
+					             <textarea id="descr"></textarea>
+					          </div>
+					    </div>
+				      </div>	  
+					  </li>					  
+					 </ul>
+					 </div>
+					 <a href="#" class="button button-fill" onclick="save_arbiter()">Submit</a>
+					 <a href="#" class="button" onclick="close_pop()">Cancel</a>
+				</div>
+	</div>
+</div>

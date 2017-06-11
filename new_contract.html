@@ -1,0 +1,80 @@
+<div data-page="new_contract" class="page">
+	 <div class="navbar">
+	  <div class="navbar-inner">
+		<div class="center">Create New Contract</div>
+	  </div>
+	</div>
+	<div class="toolbar toolbar-bottom">
+	  <div class="toolbar-inner">
+		<a href="/profile.html" class="link"><i class="material-icons">account_box</i></a>
+		<a href="/" class="link"><i class="material-icons">assignment</i></a>
+		<a href="/transactions.html" class="link"><i class="material-icons">receipt</i></a> 
+		<a href="#" class="link"><i class="material-icons">add</i></a>
+		<a href="/arbiter" class="link"><i class="material-icons">account_balance</i></a>
+	  </div>
+	</div>
+	 <div class="page-content">
+		<div class="list-block">
+		  <ul>
+		    <li>
+		      <div class="item-content">
+		        <div class="item-inner">
+		          <div class="item-title label">Description</div>
+		          <div class="item-input">
+		             <textarea id="desc"></textarea>
+		          </div>
+		        </div>
+		      </div>
+		      </li>
+		      <li>
+			<li>
+		      <div class="item-content">
+		        <div class="item-inner">
+		          <div class="item-title label">Value (Ether)</div>
+		          <div class="item-input">
+		             <input type="number" id="amount">
+		          </div>
+		        </div>
+		      </div>
+		      </li>
+		      <li>				  
+		      <div class="item-content">
+		        <div class="item-inner">
+		          <div class="item-title label">Receiver Address</div>
+		          <div class="item-input">
+		             <input type="text" id="signer"/>
+		          </div>
+		        </div>
+		      </div>
+		      </li>
+		      <li>	
+		      <div class="item-content">
+		        <div class="item-inner">
+		          <div class="item-title label">Use Arbiter</div>
+		          <div class="item-input">
+		               <label class="label-switch">
+					    <input id="choice" type="checkbox">
+					    <div class="checkbox"></div>
+					  </label>
+		          </div>
+		        </div>
+		      </div>	
+		      </li>
+		      <li>
+		      <div class="item-content">
+		        <div class="item-inner">
+		          <div class="item-title label">Arbiter Address</div>
+		          <div class="item-input">
+		             <input type="text" name="arbiter" id="arbiter"/>
+		          </div>
+		        </div>
+		      </div>
+  
+		    </li>
+		  </ul>
+		</div>		 
+		<a href="#" class="button button-fill" onclick="submit_contract()">Submit</a>
+  	 </div>  
+  
+</div>
+       
