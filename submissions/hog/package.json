@@ -1,0 +1,10 @@
+{
+  "name": "deploy",
+  "description": "",
+  "author": "",
+  "devDependencies": {
+    "fs-extra": "^0.30.0",
+    "uglify-js": "2.7.4"
+  },
+  "engine": "node >= 5.0.0"
+}
