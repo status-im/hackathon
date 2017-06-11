@@ -24,6 +24,10 @@ The student has to make a payment into the contract before the course starts.
 Once the course is finished, the teacher can either release the payment to his account or refund (if cancelled for example).
 
 
+## About me
+Software enginneer passionated into decentralisation and especially Ethereum. I tried to manage a few hours every nights to achieve this hackaton. It is a very strainghtforward use case but the aim was to illustrate how to disrupt and modernize a business case such as private tutoring.
+
+
 ## Technologies & Architecture 
 The dapp follows the following architrcture:
 <Diagram>
@@ -49,9 +53,6 @@ The frontend is a mobile webapp with:
 The technologies and frameworks are JavaScript/Typescript, Ionic2 and Angular2
 
 
-
-## About me
-Software enginneer passionated into decentralisation and especially Ethereum. I tried to manage a few hours every nights to achieve this hackaton. It is a very strainghtforward use case but the aim was to illustrate how to disrupt and modernize a business case such as private tutoring.
 
 
 
