@@ -1,0 +1,16 @@
+{
+  "contracts": ["app/contracts/**"],
+  "app": {
+    "js/app.js": ["embark.js"],
+    "js/bot.js": ["app/js/bot.js"]
+  },
+  "buildDir": "dist/",
+  "config": "config/",
+  "plugins": {
+      "embark-status": {
+        "deviceIp": "192.168.1.36",
+        "whisperIdentity": "dapp-embark-test",
+        "name": "MyEmbarkDapp"
+    }
+  } 
+}

@@ -1,0 +1,12 @@
+{
+  "default": {
+    "gas":"auto" ,
+    "contracts":
+    {
+      "LetsGetShitDone1":{
+        "address":"0xB310DFc3a7C7EB951982b6bF221a3E1676f9AB87",
+        "args":[]
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+/node_modules
+/dist
+.node-xmlhttprequest-sync*
+npm-debug.log
+chains.
+.embark
+chains.json
