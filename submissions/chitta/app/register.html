@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitta - Tokenized Communal Land Associations</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+</head>
+<script>
+  $(function() {
+    $('#confirmPassword').keydown(function(e) {
+      if (e.keyCode == 13) {
+        App.registerNewUser();
+        e.preventDefault();
+      }
+    });
+  });
+</script>
+<body>
+  <h1>Chitta - </h1>
+  <h2>Tokenized Communal Land Associations</h2>
+  <br /><br /><br />
+  <div style="margin-left:25%;margin-right:25%">
+    <h3>Register User</h3>
+
+    <br><label for="fullname">Fullname :</label><input type="text" id="fullname" placeholder="e.g., Anandan P"></input>
+    <br><label for="username">Username :</label><input type="text" id="username" placeholder="e.g., anand"></input>
+    <br><label for="password">Password :</label><input type="password" id="password" placeholder="Password"></input>
+    <br><label for="confirmPassword">Confirm Password :</label><input type="password" id="confirmPassword" placeholder="Confirm Password"></input>
+    <br /><br />
+    <div style="text-align:center">
+      <button onclick="App.registerNewUser()">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html" class="buttontype" style="background-color: gray;" >Cancel</a>
+    </div>
+  </div>
+  <span id="status"></span>
+  <br>
+</body>
+</html>

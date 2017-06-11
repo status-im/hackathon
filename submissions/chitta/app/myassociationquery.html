@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitta - Tokenized Communal Land Associations</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="./app.js"></script>
+</head>
+<body onload="App.loadQueryPage()">
+  <h1>Chitta - </h1>
+  <h2>Tokenized Communal Land Associations</h2>
+  <div  style="float:right">
+    <span style="color:#8bff77">Welcome </span> <span id="currentUserName"></span> <button onclick="App.logoutUser()">Logout</button>
+  </div>
+  <br /><br />
+  <div style="float:right">
+    <a href="home.html" class="buttontype" style="background-color: gray;" >Back</a>
+  </div>
+  <h3>My Land Association - Queries <span id="selectedCode" style="font-size:18px;padding-left:100px;"></span> </h3>
+  <p>
+    Welcome at Arani land association. Together with all land owners in the Arani region, we support each other by sharing information, voting on rulings and find solutions for double registrated land. Each member has one vote only.
+  </p>
+  <p>
+    Sometimes we will ask you to vowe for new owners, or vote on an amendment to our association. We will notify you when and within what time frame we ask you to act.
+  </p>
+  <div style="margin-left:25%;margin-right:25%">
+    <br />
+    <span>Questions : </span>
+    <select style="width: 450px;font-size: 13px;margin: 5px;height: 32px;" id="questionSelect">
+      <option value="">--Select Question--</option>
+      <option value="price"> What is fair price of this land? </option>
+      <option value="review"> Show me the current reviewer status of this land? </option>
+      <option value="highway"> How far it is from the highway? </option>
+      <option value="usage"> What is the usage of this land? </option>
+      <option value="rainwater"> How much is the rainwater fallen per m2 since last year? </option>
+    </select>
+    <button onclick="App.queryAnswer();">Go</button>
+    <br />
+    <br />
+    <span id="answerDiv">
+    </span>
+  </div>
+  <br /><br />
+  <span id="status"></span>
+  <br>
+</body>
+</html>
