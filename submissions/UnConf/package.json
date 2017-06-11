@@ -1,0 +1,17 @@
+{
+  "name": "unconference",
+  "version": "1.0.0",
+  "description": "A way to gather a community to plan an Unconference with a few smart contracts providing a lightweight governance model.",
+  "main": "index.js",
+  "repository": "https://github.com/BlockchainLabsNZ/Unconf-DApp",
+  "author": "Klaus Hott",
+  "license": "MPL-2.0",
+  "scripts": {
+    "build": "yarn truffle compile",
+    "deploy": "yarn truffle migrate",
+    "test": "yarn truffle test"
+  },
+  "dependencies": {
+    "truffle": "^3.2.4"
+  }
+}
