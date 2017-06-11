@@ -1,0 +1,470 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.search {
+  width: 100%;
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+}
+.MainWindow{
+  width: 100%;
+  height: 100%;
+  margin-left: 300px;
+}
+.searchTerm {
+  float: left;
+  width: 100%;
+  border: 3px solid #00B4CC;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  position: absolute;
+  right: -50px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.makeNewPayment{
+  position: fixed;
+  right: 30px;
+  width: 200px;
+  top: 60px;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  background: #009688;
+  font: 15px sans-serif;
+  cursor: pointer;
+  color: #fff;
+}
+.RequestPay{
+  position: fixed;
+  right: 30px;
+  width: 200px;
+  top: 120px;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  background: #2196F3;
+  font: 15px sans-serif;
+  cursor: pointer;
+  color: #fff;
+}
+.main li{
+  width: 650px;
+  height: 100px;
+  border-radius: 20px;
+  margin: 5px 25%;
+  background: rgba(225,225,225,0.5);
+  list-style: none;
+}
+.main li img{
+  height: 80px;
+  margin: 0px 20px;
+  display: table;
+}
+.main li h4{
+  display: table;
+}
+.main h2{
+  margin: 5px 25%;
+}
+
+bar rect {
+  fill: steelblue;
+}
+#mymenu{
+  margin: -15px;
+}
+
+.bar text {
+  fill: #fff;
+  font: 10px sans-serif;
+}
+
+.listStuff ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.listStuff li {
+    float: left;
+    width: auto;
+    margin: auto;
+    line-height: 40px;
+    background: none;
+}
+
+.listStuff li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    line-height: 4.5em;
+    text-decoration: none;
+}
+
+
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  background: #5D9CEC;
+  color: #fffce1;
+  font-family: 'Raleway', Arial, sans-serif;
+}
+#app {
+  height: 100%;
+}
+a {
+  color: #4e4a46;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #c94e50;
+}
+main {
+  height: 100%;
+  text-align: center;
+  background: #b4bad1;
+  overflow: hidden;
+}
+h1 {
+  font-weight: 800;
+  font-size: 3.75em;
+}
+.description {
+  max-width: 20em;
+  margin: 1.2em auto 1em;
+  line-height: 1.3em;
+  font-weight: 400;
+}
+.demo-buttons {
+  font-size: 1em;
+  max-width: 1200px;
+  margin: 2em auto 3em;
+  padding: 0 10em;
+}
+.demo-buttons a {
+  display: inline-block;
+  margin: 0.75em;
+  padding: 1.35em 1.1em;
+  width: 15em;
+  background: #fffce1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+  border-top-left-radius: 20px 50px;
+  border-top-right-radius: 20px 50px;
+  border-bottom-right-radius: 20px 50px;
+  border-bottom-left-radius: 20px 50px;
+  cursor: pointer;
+}
+.demo-buttons a.current-demo {
+  background: #c94e50;
+  color: #fffce1;
+}
+.side-button {
+  display: inline-block;
+  width: 5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  cursor: pointer;
+  background: #fffce1;@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,800@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,800);
+  background: #c94e50;
+  color: #fffce1;
+}
+@media screen and (max-width: 40em) {
+  main {
+    font-size: 80%;
+  }
+  h1 {
+    padding-top: 1em;
+    font-size: 2.5em;
+  }
+  .demo-buttons {
+    max-width: 900px;
+    padding: 0 2em;
+  }
+}
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+.right .bm-burger-button {
+  left: initial;
+  right: 36px;
+}
+.bm-burger-bars {
+  background: #373a47;
+}
+.bm-morph-shape {
+  fill: #373a47;
+}
+.bm-menu {
+  background: #373a47;
+}
+.bm-menu a {
+  color: #b8b7ad;
+}
+.bm-menu a:hover,
+.bm-menu a:focus {
+  color: #c94e50;
+}
+.bm-item-list a {
+  padding: 0.8em;
+}
+.bm-item-list a span {
+  margin-left: 10px;
+  font-weight: 700;
+}
+.menu-1 .bm-cross {
+  background: #bdc3c7;
+}
+.menu-1 .bm-menu {
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+.menu-2 .bm-cross {
+  background: #999;
+}
+.menu-2 .bm-menu {
+  padding: 3.4em 1em 0;
+}
+.menu-2 a {
+  padding: 1em;
+}
+.menu-2 i {
+  font-size: 1.7em;
+  vertical-align: middle;
+  color: #282a35;
+}
+.menu-3 .bm-cross {
+  background: #888;
+}
+.menu-3 .bm-menu {
+  padding: 2em 1em;
+  font-size: 1.15em;
+}
+.menu-3 i {
+  opacity: 0.5;
+}
+.menu-3 span {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75em;
+}
+.menu-4 .bm-cross {
+  background: #888;
+}
+.menu-4 h2 {
+  margin: 0 auto;
+  padding: 2em 1em;
+  color: rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+}
+.menu-4 h2 i {
+  margin-left: 0.2em;
+}
+.menu-4 h2 span {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+.menu-4 a {
+  padding: 1em;
+  text-transform: uppercase;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+}
+.menu-4 a span {
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+.menu-4 a:hover,
+.menu-4 a:focus {
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0);
+  color: #b8b7ad;
+}
+#slide .bm-cross,
+#stack .bm-cross {
+  background: #bdc3c7;
+}
+#slide .bm-menu,
+#stack .bm-menu {
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+#bubble .bm-cross,
+#push .bm-cross {
+  background: #999;
+}
+#bubble .bm-menu,
+#push .bm-menu {
+  padding: 3.4em 1em 0;
+}
+#bubble a,
+#push a {
+  padding: 1em;
+}
+#bubble i,
+#push i {
+  font-size: 1.7em;
+  vertical-align: middle;
+  color: #282a35;
+}
+#elastic .bm-cross {
+  background: #888;
+}
+#elastic .bm-menu {
+  padding: 2em 1em;
+  font-size: 1.15em;
+}
+#elastic i {
+  opacity: 0.5;
+}
+#elastic span {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75em;
+}
+#scaleDown .bm-cross,
+#scaleRotate .bm-cross,
+#pushRotate .bm-cross,
+#fallDown .bm-cross {
+  background: #888;
+}
+#scaleDown h2,
+#scaleRotate h2,
+#pushRotate h2,
+#fallDown h2 {
+  margin: 0 auto;
+  padding: 2em 1em;
+  color: rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+}
+#scaleDown h2 i,
+#scaleRotate h2 i,
+#pushRotate h2 i,
+#fallDown h2 i {
+  margin-left: 0.2em;
+}
+#scaleDown h2 span,
+#scaleRotate h2 span,
+#pushRotate h2 span,
+#fallDown h2 span {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+#scaleDown a,
+#scaleRotate a,
+#pushRotate a,
+#fallDown a {
+  padding: 1em;
+  text-transform: uppercase;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+}
+#scaleDown a span,
+#scaleRotate a span,
+#pushRotate a span,
+#fallDown a span {
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+#scaleDown a:hover,
+#scaleRotate a:hover,
+#pushRotate a:hover,
+#fallDown a:hover,
+#scaleDown a:focus,
+#scaleRotate a:focus,
+#pushRotate a:focus,
+#fallDown a:focus {
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0);
+  color: #b8b7ad;
+}
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 36px;
+  top: 36px;
+  left:auto;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+display: none;
+}
