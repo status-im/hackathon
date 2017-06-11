@@ -1,0 +1,95 @@
+h1, h2, h3 {
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table thead {
+    border-bottom: 2px solid #16325c;
+    width: 100%;
+}
+
+table thead td {
+    padding: .5em 0;
+    font-weight: bold;
+    color: #16325c;
+}
+
+table tbody td {
+    padding: .5em 0;
+    color: #5876a3;
+}
+
+table tbody td:first-of-type {
+    padding-right: 4em;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+
+ul {
+  list-style: none;
+}
+
+.SendCoin {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid;
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  color: #16325c;
+
+  label {
+    white-space: nowrap;
+    flex-basis: 100%;
+
+  }
+
+  .RecipientAddress {
+    flex: 1;
+  }
+
+  .BetAmount {
+    flex: 1;
+    margin-right: .8em;
+  }
+
+  input {
+    margin-bottom: 1em;
+    font-size:1em;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    padding: .5rem;
+    color: #16325c;
+    border: 1px solid #d8dde6;
+    border-radius: .25rem;
+  }
+
+  .BetBtn {
+    font-size:1em;
+    color: #0070d2;
+    line-height:1;
+    padding: .6rem 1rem;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #d8dde6;
+    background-color: #fff;
+  }
+}
