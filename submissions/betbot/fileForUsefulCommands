@@ -1,0 +1,95 @@
+Please don't delete this file. It is for storing any commands that are used often.
+
+status-dev-cli scan
+status-dev-cli switch-node http://localhost:8546 --ip 10.0.0.12
+status-dev-cli switch-node http://localhost:8546 --ip 192.168.56.101
+status-dev-cli switch-node http://localhost:8546 --ip 172.18.150.165
+status-dev-cli add '{"whisper-identity":"testing", "name":"test", "dapp-url":"http://10.5.50.12:8000"}' --ip 172.18.150.165
+//192.168.56.101
+
+
+truffle compile && truffle migrate -reset
+web3.personal.unlockAccount('0x8C4E4b131F991ee92dD62BA7446868a15E97e3a7', '123', 15000)
+
+adb reverse tcp:8546 tcp:8546 && adb reverse tcp:3000 tcp:3000
+
+parity --geth --chain ropsten --jsonrpc-port 8546 --force-ui --reseal-min-period 0 --jsonrpc-cors http://localhost --unlock 0x7a0bc2bb644c1d582121c1efb4ebb72f7dcbe7a0 --passrd password.txt
+
+
+Available Accounts
+==================
+(0) 0x7a0bc2bb644c1d582121c1efb4ebb72f7dcbe7a0
+(1) 0x9ea4ea9f20bdffa9b65c552b1a3d82d00d4a4406
+(2) 0xf15e7f2ba0476a8a1e76138245f6fd4ffaf04bb4
+(3) 0x1f9c50b3661c0e43502d0fc34ef68814aa2e4404
+(4) 0x9239b25a65814b9593f7454892df19a9d15b1259
+(5) 0xa0596c1137b544d782fbf36005097f7499c44d07
+(6) 0x336b4c78248985e03e5ffd044aafb5c096564796
+(7) 0xe4b4ba7073e28e863151ed84719d5681d863f177
+(8) 0xfdc22caff9debe3d6b186dab52f4e55daa03763b
+(9) 0x8b8637b01f65d610c7a267a9339a94136da33573
+
+Private Keys
+==================
+(0) 92fa05b12aeed8b438f808ba6e43a8a2b1e023a9dacf32d0dc78473591b1921f
+(1) a1e459cd1ed87123232af898e9d12c4b128593d4ce05729f35b3076fa58134e3
+(2) 0eb5cdf45f68edc6a6921357d5a41fd376a2e7d6724e9ee30cf7c91c4fc043b7
+(3) 6ffe96e57a4106b1c40058c00d54ec6498ca37f4555e181d668f911088647a50
+(4) 23322044130887b0bc8981a84f3901913aed2a64fe41aa02c4e905fb859cc597
+(5) ca10e13e788d23b4618593176f36737e64c630fb195df05b481f7f0b239ecbc2
+(6) 15cd111dc23a9e289fdbe6fdecce1d1d5a30fdb6ad7734531e8f15cf4703fced
+(7) 5d0b914e92292786018941b9fbec00bf29f35a374e99f5c563c001748ccbf72f
+(8) d26b282d44d33a529a494284bf7ab80105d077300f5f35c924e5564aa596b7e5
+(9) 975f7babb356c736845bbea7203a0cef4bbfcfdde31f2d5513e904e832ce690e
+
+
+
+/*uint length = people.length;*/
+uint length = users[0x9Ea4ea9f20Bdffa9B65c552B1a3D82d00D4a4406].groups.length;
+
+bytes32[] memory groupIds = new bytes32[](length);
+bytes32[] memory groupNames = new bytes32[](length);
+/*int[] memory ballances = new int[](length);*/
+
+// This for loop isn't too expensive because this function is 'constart'
+for (uint i = 0; i < length; i++) {
+  bytes32 curGroupId = users[0x9Ea4ea9f20Bdffa9B65c552B1a3D82d00D4a4406].groups[i];
+  Group memory curGroup;
+  curGroup = groups[curGroupId];
+
+  groupIds[i] = curGroupId;
+  groupNames[i] = curGroup.name;
+  /*ballances[i] = curGroup.ballances[msg.sender];*/
+}
+return (groupIds, groupNames);
+
+
+"aname", "a"
+"0xca35b7d915458ef540ade6068dfe2f44e8fa733c", "a", 44
+"0x14723a09acff6d2a60dcdf7aa4aff308fddc160c", "a", 55
+
+
+"aname", "a"
+"0x7a0bc2bb644c1d582121c1efb4ebb72f7dcbe7a0", "a", 44
+"0x9ea4ea9f20bdffa9b65c552b1a3d82d00d4a4406", "a", 55
+
+
+"aname", "a"
+"0xca35b7d915458ef540ade6068dfe2f44e8fa733c", "a", 44
+"0x14723a09acff6d2a60dcdf7aa4aff308fddc160c", "a", 55
+
+
+0x0002b6b256b11db1722a73feaf2019b0f758fd73 (contract deployed here on kovan)
+
+
+
+adb reverse tcp:8546 tcp:8546 && adb reverse tcp:3000 tcp:3000 && status-dev-cli switch-node http://10.0.2.67:8546 --ip 10.0.2.66
+adb reverse tcp:8546 tcp:8546 && adb reverse tcp:3000 tcp:3000 && status-dev-cli switch-node http://localhost:8546 --ip 10.0.2.66
+status-dev-cli switch-node http://localhost:8546 --ip 10.0.2.66
+
+truffle compile && truffle migrate --reset
+status-dev-cli list --ip 10.0.2.66
+
+status-dev-cli watch $PWD "dapp-0x74727566666c652d626f782d737461747573" --ip 10.0.2.66
+
+status-dev-cli log "dapp-0x74727566666c652d626f782d737461747573" --ip 10.0.2.66
