@@ -1,0 +1,138 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+    <title></title>
+    <script src="/vendors/numeral.min.js"></script>
+    <script src="/vendors/jquery.min.js"></script>
+    <script src="/vendors/blockies.js"></script>
+    <script type="text/javascript" src="build/bundle.js" charset="utf-8"></script>
+    <link href="https://status.im/dapps/wallet/css/style.css" rel="stylesheet">
+    <link href="https://status.im/dapps/wallet/css/slick.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500,300,400" rel="stylesheet" type="text/css">
+    <style media="screen">
+      .wallets.wallets{
+        padding-top:0px;
+      }
+      .wallets.wallets a{
+        padding-top:0px;
+        display:inline;
+        padding:10px;
+        font-size: 16px;
+      }
+      td {
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      td img{
+        vertical-align: middle;
+      }
+      td.key{
+        text-align:left;
+        text-overflow:ellipsis;
+      }
+      tr.your-sum{
+        background-color:pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="top-nav">
+        <h2>Status Genesis Token Leader board</h2>
+      </div>
+      <div class="wallets">
+        <table style="width:95%" class="wallet">
+          <tr>
+            <th>Rank</th>
+            <th>User</th>
+            <th>Token</th>
+          </tr>
+          <tr v-for="top in tops">
+            <td>{{top.rank}}</td>
+            <td class="key"><img v-bind:src="top.imgUrl"><a v-bind:href="top.ethUrl">{{top.key}}</a></td>
+            <td><a v-bind:href="top.tokenUrl">{{top.sum}}</a></td>
+          </tr>
+          <tr v-if="yourSum" class="your-sum">
+            <td>{{yourRank}}</td>
+            <td class="key"><img v-bind:src="yourImgUrl"><a v-bind:href="yourEthUrl">{{yourKey}}</a></td>
+            <td><a v-bind:href="yourTokenUrl">{{yourSum}}</a></td>
+          </tr>
+        </table>
+        <div v-if="total == '0'" style="width:95%" class="wallet you">
+          <p>Wait a moment. Getting data from blockchain.</p>
+          <img src="./giphy.gif">
+        </div>
+      </div>
+    </div>
+    <script src="./vendors/vue.min.js"></script>
+    <script>
+    $(document).ready(function() {
+
+      var loader = "<img src='./giphy.gif' style=\"display:block;margin:auto;\"></img>"
+      // console.log('loader', loader)
+      // $('#chart_div').html(loader)
+      var topData = {
+        tops:[],
+        total:0,
+        yourKey:null,
+        yourSum:null,
+        yourImgUrl:null,
+        yourRank:null,
+        yourEthUrl:null,
+        yourTokenUrl:null
+      };
+      var app = new Vue({
+        el: '#app',
+        data: topData
+      })
+
+      getTokenRanking(10, parsed.account, function(result){
+        var total =  result['tops'].length;
+        console.log('result', result);
+        var sum;
+        if (result['your_rank']) {
+          sum = numeral(result['your_rank'].sum).format('0,0');
+        }
+
+        function getEthUrl(address){
+          return './eth_line.html?account=' + address
+        }
+
+        function getTokenUrl(address){
+          return './token_line.html?account=' + address
+        }
+
+        function getImgURL(address){
+          return blockies.create({
+            seed: address,
+            size: 5,
+            scale: 5,
+          }).toDataURL();
+        }
+        topData.total = result['tops'].length;
+        topData.yourSum = sum;
+        topData.yourKey = parsed.account;
+        topData.yourEthUrl = getEthUrl(topData.yourKey);
+        topData.yourTokenUrl = getTokenUrl(topData.yourKey);
+        topData.yourRank = result['your_rank'] && result['your_rank'].rank;
+        topData.yourImgUrl = getImgURL(topData.yourKey);
+        topData.tops = result['tops'].map(function(t){
+          t.sum = numeral(t.sum).format('0,0');
+          t.imgUrl = getImgURL(t.key);
+          t.ethUrl = getEthUrl(t.key);
+          t.tokenUrl = getTokenUrl(t.key);
+          return t
+        })
+      });
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <script src="/vendors/jquery.min.js"></script>
+    <script src="/vendors/numeral.min.js"></script>
+    <script type="text/javascript" src="../build/bundle.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      var drawChart;
+      $(document).ready(function() {
+        var loader = "<img src='./giphy.gif' style=\"display:block;margin:auto;\"></img>"
+        console.log('loader', loader)
+        $('#chart_div').html(loader)
+
+        google.charts.load('current', {'packages':['corechart']});
+
+        getEthChart(parsed.account, function(title, result){
+          console.log('data', result)
+          drawChart = function() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('date', 'Time of Day');
+            data.addColumn('number', 'Balance');
+
+            data.addRows(
+              result.map(function(d){return [d.timestamp, d.balance]})
+            );
+
+            var options = {
+              title: title,
+              curveType: 'function',
+              hAxis: {
+                format: 'M/d/yy',
+                gridlines: {count: 15}
+              },
+              vAxis: {
+                gridlines: {color: 'none'},
+                minValue: 0
+              }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+          }
+          google.charts.setOnLoadCallback(drawChart);
+          $(window).resize(function(){
+            drawChart();
+          });
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+  </body>
+</html>

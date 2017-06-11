@@ -1,0 +1,10 @@
+const getTokenChart = require('./token_detail').default;
+const getEthChart = require('./eth').default;
+const getTokenRanking = require('./token_summary').default;
+window.getTokenRanking = getTokenRanking;
+window.getTokenChart = getTokenChart;
+window.getEthChart = getEthChart;
+const queryString = require('query-string');
+const parsed = queryString.parse(window.location.search);
+window.parsed = parsed;
+const frequent_receiver = '0xa9af49f28fa939aa6d7a9683de9a4319d1d8ecba';
