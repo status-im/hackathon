@@ -1,0 +1,21 @@
+<div show-xs show-sm hide-gt-sm style="position:fixed; top:5px; left: 5px;">
+    <md-button class="md-raised md-primary" ng-show="view == 'left'"  ng-click="view = 'right'">Right</md-button>
+    <md-button class="md-raised md-primary" ng-show="view == 'right'" ng-click="view = 'left'">Left</md-button>
+</div>
+<div style="width:100%; height:100vh;">
+    <div layout="column" layout-gt-sm="row" layout-fill>
+        <div ng-show="screenIsBig || view == 'left'" layout="column" layout-fill layout-align="center center" flex flex-gt-sm="50">
+            <p>Left</p>
+        </div>
+        <div ng-show="screenIsBig || view == 'right'" layout="column" layout-fill flex flex-gt-sm="50">
+            <div style="overflow:hidden" layout="column" layout-fill>
+                <div style="overflow:auto">
+                    <h3 layout="row" layout-padding layout-margin flex><span flex></span>Shareholder Comments</h3>
+                    <div class="light-border" layout="row" layout-padding layout-margin>
+                        <p>Right</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

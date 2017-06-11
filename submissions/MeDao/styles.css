@@ -1,0 +1,35 @@
+body {
+    background-color: black;
+}
+
+html.md-default-theme, html, body.md-default-theme, body {
+    color:rgba(255,255,255,0.87);
+}
+
+.blue-background {
+    background-color: rgba(22,33,55,1);
+}
+
+.darker-background {
+    background-color: rgba(0,0,0,0.13);
+}
+
+input {
+    background-color: rgba(33,33,55,1);
+    border: 0px solid black;
+    text-align: right;
+}
+
+input:focus {
+    outline: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color:rgba(255,255,255,0.87);
+}
+
+p {
+    color:rgba(255,255,255,0.87);
+    text-align: justify;
+}
+

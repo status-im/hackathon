@@ -1,0 +1,4 @@
+<div layout="column" layout-align="center center">
+    <md-button class="md-raised md-primary" ng-disabled="disabled || waiting" ng-click="warn($event)">{{buttonText}}</md-button>
+    <p ng-show="thinking != 0" style="background-color:rgba(111,11,11,0.67); width:75%" layout="row" layout-padding layout-margin><b>You will automatically be fowarded to your MeDao upon successful deployment. Normally this occurs within 30 seconds but occasionally can take up to a few minutes. Be patient!</b></p>
+</div>

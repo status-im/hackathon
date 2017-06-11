@@ -1,0 +1,30 @@
+<div class="blue-background">
+    <div  style="height:100vh;" layout="column" layout-align="center center" flex>
+        <h1>MeDao</h1>
+        <p style="font-size:20px;">What is <b>your</b> time worth?</p>
+        <div ng-show="loaded && !hasMedao" layout="column" layout-align="center center">
+            <md-input-container ng-class="{'dotted': dotted}" md-no-float>
+                <input class="medao-input"
+                       ng-focus="onFocus()" 
+                       ng-blur="onBlur()"
+                       ng-model="medao.name">
+            </md-input-container>
+            <register-button medao-name="medao.name" disabled="!medao.valid"></register-button>  
+        </div>
+        <div ng-show="hasMedao" layout="column" layout-align="center center">
+            <p> 0 ETH / year</p>
+            <md-button class="md-raised md-primary" ng-disabled="!loaded" ng-click="goto('medao/'+account)">Go to MeDao</md-button>
+        </div>
+    </div>
+    <div layout="column" layout-padding layout-margin>
+        <h2>What is a MeDao</h2>
+        
+        <p>Quite simply, a MeDao is a smart contract that uses a token to represent a timeshare for a person. Up to 40 hours worth of shares can be created each week and conversely, a burn function is provided to show proof of work.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ornare placerat justo at elementum. Integer odio neque, consectetur eu turpis nec, commodo faucibus diam. Praesent arcu magna, consequat consequat nibh sed, pretium euismod ante. Maecenas non consectetur justo. Integer accumsan vitae sem id ullamcorper. Ut gravida hendrerit neque, sed dignissim quam auctor vehicula. Maecenas sit amet lobortis diam. Proin malesuada felis felis, non mollis magna tristique quis.</p>
+
+        <p>Sed non placerat felis. Donec a pulvinar dolor. Fusce ac libero dui. Duis consequat leo et suscipit vestibulum. Vivamus gravida neque rutrum, ultricies orci vel, elementum sapien. Quisque in urna feugiat, suscipit urna ac, consequat lacus. Sed non rutrum eros. Donec non ornare nulla, hendrerit placerat elit. Nulla malesuada, nisi a accumsan sodales, dui ex eleifend nulla, aliquam ullamcorper elit nunc et orci. Pellentesque ornare tellus vel metus pretium, eget tristique sem accumsan. Nullam et lacus at ex egestas placerat. Maecenas eu justo eros. Aenean ac faucibus magna.</p>
+
+        <p>Etiam sed mollis nisi. In eget ante mauris. Curabitur sed ultrices neque. Phasellus congue ultricies metus. Praesent ac fringilla massa, eget tempor nisl. Etiam eu dolor id sem maximus facilisis at lacinia ex. Proin hendrerit nisi laoreet iaculis auctor. Aenean nunc elit, dignissim eu augue at, ultricies scelerisque orci. Donec ut cursus nulla, a tristique purus. Quisque ut dignissim libero, id cursus nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer et fermentum turpis. Fusce iaculis imperdiet arcu vitae tempor. Sed eget ligula nec lectus euismod faucibus.</p>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.cursor {
+    cursor: pointer;
+    cursor: hand;
+    outline:0;
+}
+
+button:focus {
+    outline:0;
+}
+
+.light-border {
+    border: 1px solid rgba(255,255,255,0.87);
+}
+
+.dark-border {
+    border: 1px solid rgba(0,0,0,0.87);
+}
+
+.light-text {
+    color:rgba(255,255,255,0.87);
+}
+
+.dark-text {
+    color:rgba(0,0,0,0.87);
+}
