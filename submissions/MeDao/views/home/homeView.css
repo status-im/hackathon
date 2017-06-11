@@ -1,0 +1,29 @@
+.dotted {
+    border-bottom: 1px dotted #AAA;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    border-bottom: 0px solid transparent;
+}
+
+.medao-input {
+    font-size: 16px;
+    text-align: center;
+}
+
+md-input-container .md-errors-spacer {
+    min-height: 0;
+}
+
+md-input-container.md-default-theme .md-input, md-input-container .md-input {
+    color: rgba(255,255,255,0.87);
+}
+
+md-dialog.md-default-theme, md-dialog {
+    background-color: rgba(255,255,255,1);
+    color: black !important;
+}
+
+.md-button.md-default-theme[disabled], .md-button[disabled], .md-button.md-default-theme.md-raised[disabled], .md-button.md-raised[disabled], .md-button.md-default-theme.md-fab[disabled], .md-button.md-fab[disabled], .md-button.md-default-theme.md-accent[disabled], .md-button.md-accent[disabled], .md-button.md-default-theme.md-warn[disabled], .md-button.md-warn[disabled] {
+    color: rgba(255,255,255,0.4);
+}

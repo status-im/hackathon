@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Requires Web3.">
+    
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="libs/angular-includes/angular-material-1.1.0.min.css">
+    <link rel="stylesheet" href="libs/fonts/material-icons.css">
+    <link rel="stylesheet" href="libs/fonts/roboto.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="utility.css">
+    
+    <link rel="stylesheet" href="views/home/homeView.css">
+    <link rel="stylesheet" href="views/medao/medaoView.css">
+    
+    <title>MeDao - Testnet Only</title>
+    
+</head>
+<body ng-app="MeDao" layout="column">
+    
+    <div class="blue-background" ng-view flex></div>
+    
+    <!-- Angular + Material Libraries -->
+    <script src="libs/angular-includes/angular-1.5.5.min.js"></script>
+    <script src="libs/angular-includes/angular-animate-1.5.5.min.js"></script>
+    <script src="libs/angular-includes/angular-aria-1.5.5.min.js"></script>
+    <script src="libs/angular-includes/angular-material-1.1.0.min.js"></script>
+    <script src="libs/angular-includes/angular-messages-1.5.5.min.js"></script>
+    <script src="libs/angular-includes/angular-route-1.5.5.min.js"></script>
+    <script src="libs/angular-includes/angular-svg-assets-cache.js"></script>
+    <script src="libs/angular-includes/angular-sanitize-1.6.2.js"></script>
+    
+    <!-- Other Libraries -->
+    <script src="libs/web3/web3.js"></script>
+            
+    <!-- Application Files  -->
+    <script src="app.js"></script>
+    
+    <!-- Services  -->
+    <script src="services/MeDaoRegistry.js"></script>
+    <script src="services/MeDao.js"></script>
+    <script src="services/Token.js"></script>
+    <script src="services/Web3Service.js"></script>
+
+    <!-- Controllers  -->
+    <script src="views/home/homeViewController.js"></script>
+    <script src="views/medao/medaoViewController.js"></script>
+    <script src="views/empty/emptyViewController.js"></script>
+    
+    <!-- Directives  -->
+    <script src="directives/register-button/registerButtonDirective.js"></script>
+    <script src="directives/bid/bidDirective.js"></script>
+          
+</body>
+</html>

@@ -1,0 +1,27 @@
+<div layout="column" layout-padding layout-margin>
+    <div>
+        <h3 class="dark-text">The MeDao project is still in Alpha!</h3>
+        <p class="dark-text">We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</p>
+
+        <p class="dark-text">In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.</p>
+
+        <p class="dark-text">Every effort is made to keep the website up and running smoothly. However, we take no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.</p>
+
+        <div layout="row" layout-padding flex>
+            <span flex></span>
+            <div>
+                <md-input-container>
+                    <md-checkbox name="tos" ng-model="agreesToTerms" required>
+                        I accept the risk
+                    </md-checkbox>
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="column" layout-gt-xs="row" flex>
+            <md-button href="" class="md-raised" style="background-color:rgb(144,188,144);color:rgba(255,255,255,0.87);">View Code</md-button>
+            <span flex></span>
+            <md-button class="md-raised md-warn" ng-click="cancel()">back</md-button>
+            <md-button class="md-raised md-primary" ng-disabled="!agreesToTerms" ng-click="answer(true);">Deploy</md-button>
+        </div>
+    </div>
+</div>
