@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Course
+    </ion-title>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-content>
+            <div>Student: {{course.studentAddressTrunc}}</div>
+            <div>State: {{course.state.label}}</div>
+            <div>Start date: {{course.startDate | date: 'dd/MM/yyyy HH:mm'}}</div>
+            <div>End date: {{course.endDate | date: 'dd/MM/yyyy HH:mm'}}</div>
+            <div>Amount: {{course.amount}}</div>
+            <div>Description: {{course.description}}</div>
+            <div>Level: {{course.level.label}}</div>
+        </ion-card-content>
+    </ion-card>
+    
+    <button ion-button icon-left [hidden]="!isTeacher" [disabled]="course.state.code !=1" (click)="release()">
+        <ion-icon name="ios-cash"></ion-icon>
+        Release
+    </button>
+
+    <button ion-button icon-right [hidden]="!isTeacher" [disabled]="course.state.code !=1" (click)="refund()">
+        Refund
+        <ion-icon name="ios-cash-outline"></ion-icon>
+    </button>
+    
+    
+    <button ion-button color="light" [hidden]="isTeacher" [disabled]="course.state.code !=0" (click)="makePayment()">
+        Payment
+    </button>
+    
+</ion-content>
+

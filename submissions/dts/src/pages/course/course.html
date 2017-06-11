@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Courses
+    </ion-title>
+    
+    <ion-buttons end>
+    
+        <button ion-button icon-left (click)="seeHistory()">
+          <ion-icon name="md-filing"></ion-icon>
+          History
+        </button>
+    
+      <button ion-button (click)="addCourse()" [hidden]="!isTeacher">
+        <ion-icon name="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let course of coursesList" (click)="selectCourse(course)">
+            <h2>[{{course.state.label}} / {{course.amount}} ETH]</h2>
+            <p>From {{course.startDate | date: 'dd/MM/yyyy HH:mm'}} to  {{course.endDate | date: 'dd/MM/yyyy HH:mm'}}</p>
+            <button ion-button clear item-right>View</button>
+        </ion-item>
+    </ion-list>
+    
+    <ion-card *ngIf="coursesList?.length == 0">
+        <ion-card-content>
+            <div>No data</div>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

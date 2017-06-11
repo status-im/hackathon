@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{ads.title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-content>
+            <div>Description: {{ads.description}}</div>
+            <div>Discipline: {{ads.discipline}}</div>
+            
+            <div style="display:none" id="copyTarget">{{ads.teacherAddress}}</div>
+            <div>
+                Teacher: {{ads.teacherAddressTrunc}}
+                <button id="cpyBtn" ion-button data-clipboard-target="#copyTarget">Copy</button>
+            </div>
+        </ion-card-content>
+    </ion-card>
+    
+
+    <button ion-button color="light" [hidden]="isTeacher" (click)="startChat()">
+        Start chatting
+    </button>
+    
+</ion-content>
+

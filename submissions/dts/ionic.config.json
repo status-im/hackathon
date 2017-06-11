@@ -1,0 +1,11 @@
+{
+  "name": "status-hackaton-dts",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/contracts",
+      "proxyUrl": "http://0.0.0.0"
+    }
+  ],
+  "type": "ionic-angular"
+}
