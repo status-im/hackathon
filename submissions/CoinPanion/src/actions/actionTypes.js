@@ -1,0 +1,8 @@
+export const GET_USER = 'profile/GET_USER'
+export const SAVE_PROFILE = 'profile/SAVE_PROFILE'
+export const SEARCH = 'SEARCH'
+export const WEB_3_INITIALIZE = 'WEB_3_INITIALIZE'
+export const GET_CONTRACT_DATA = 'GET_CONTRACT_DATA'
+export const LOAD_VAULT = 'LOAD_VAULT'
+export const INIT_VAULT = 'INIT_VAULT'
+export const COIN_SOMEONE = 'COIN_SOMEONE'
