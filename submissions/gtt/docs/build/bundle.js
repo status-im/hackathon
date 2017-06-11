@@ -10329,13 +10329,11 @@ function getAllEvents(cb){
   console.log('one_month_ago', one_month_ago)
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__token__["a" /* default */])().then(function(t){
     t.Transfer({},{fromBlock:one_month_ago})
-      .then(function(res){
-        res.get(function(error, logs){
-          console.log('error', error)
-          console.log('aaa', logs)
-          cb(aggregate(logs));
-        });
-      })
+     .get(function(error, logs){
+        console.log('error', error)
+        console.log('aaa', logs)
+        cb(aggregate(logs));
+      });
   })
 }
 

@@ -17,8 +17,16 @@
             var data = new google.visualization.DataTable();
             data.addColumn('date', 'Time of Day');
             data.addColumn('number', 'Balance');
-            data.addRows(
-              result.map(function(d){return [d.timestamp, d.balance.toNumber()]})
+              data.addRows(
+              result.map(function(d){
+                var b;
+                if (typeof(d.balance) == 'object') {
+                  b = d.balance.toNumber()
+                }else{
+                  b = d.balance
+                }
+                return [d.timestamp, b]
+              })
             );
 
             var options = {

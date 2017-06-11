@@ -66,8 +66,7 @@
             <td><a v-bind:href="yourTokenUrl">{{yourSum}}</a></td>
           </tr>
         </table>
-
-        <div v-if="!yourSum" style="width:95%" class="wallet you">
+        <div v-if="total == '0'" style="width:95%" class="wallet you">
           <p>Wait a moment. Getting data from blockchain.</p>
           <img src="./giphy.gif">
         </div>
@@ -123,7 +122,7 @@
         topData.yourKey = parsed.account;
         topData.yourEthUrl = getEthUrl(topData.yourKey);
         topData.yourTokenUrl = getTokenUrl(topData.yourKey);
-        topData.yourRank = result['your_rank'].rank;
+        topData.yourRank = result['your_rank'] && result['your_rank'].rank;
         topData.yourImgUrl = getImgURL(topData.yourKey);
         topData.tops = result['tops'].map(function(t){
           t.sum = numeral(t.sum).format('0,0');
