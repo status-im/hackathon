@@ -7,13 +7,12 @@ Hackathon GitHub Issue: https://github.com/status-im/hackathon/issues/83
 {
     "whisper-identity": "83-eth-lend-chatbot",
     "name": "#83 Eth Lend Chatbot",
-    "dapp-url": "http://aaroncolaco.com/status-hackathon/",
-    "bot-url": "http://aaroncolaco.com/status-hackathon/bots/bot.js"
+    "bot-url": "http://aaroncolaco.com/status-hackathon/bots/ethLend.js"
 }
 ```
 
 
-## Useage
+## Usage
 
 * Install npm module `status-dev-cli`
 * Install Status app on phone
