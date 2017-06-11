@@ -1,0 +1,41 @@
+---
+language: node_js
+node_js:
+  - "6"
+
+sudo: required
+
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+
+before_install:
+  - sudo apt-get install -y libavahi-compat-libdnssd-dev
+  - npm install -g node-gyp
+  - npm install -g marked
+  - npm install -g yarn
+  - npm install -g truffle
+  # - npm install libavahi-compat-libdnssd-dev
+
+install:
+  - yarn
+  - npm install
+
+before_deploy:
+  - truffle compile
+  - npm run build
+
+deploy:
+  provider: surge
+  project: ./build_webpack/
+  domain: coinpanion.surge.sh 
+  skip_cleanup: true
+  repo: "alonski/coinpanion"
+  project_name: coinpanion
+  on:
+    branch: master
