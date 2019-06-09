@@ -67,7 +67,7 @@
     "material-ui-search-bar": "^0.2.1",
     "promise-polyfill": "^6.0.2",
     "querybase": "^0.6.0",
-    "querystringify": "^1.0.0",
+    "querystringify": "^2.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-dropzone": "^3.13.2",
